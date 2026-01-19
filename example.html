@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YonkoX: Refined Collective (Light)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80011E",
+                        "secondary": "#383838",
+                        "charcoal": "#121212",
+                        "rice-paper": "#F4F1E8",
+                        "surface-light": "#E8E4D9",
+                        "ink-black": "#0F0F0F",
+                        "off-white": "#F9F7F2"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "glow": "0 0 20px rgba(128, 1, 30, 0.15)",
+                        "elegant": "0 20px 50px -10px rgba(0, 0, 0, 0.08)",
+                        "card": "0 10px 30px -10px rgba(0, 0, 0, 0.05)",
+                    },
+                    borderRadius: {
+                        "sm": "2px",
+                        "DEFAULT": "0px",
+                    },
+                    backgroundImage: {
+                        'ink-wash': "radial-gradient(circle at 50% 40%, rgba(255,255,255,0.8) 0%, rgba(244,241,232,0) 60%)",
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-rice-paper text-ink-black;
+                background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);background-repeat: repeat;
+            }
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);
+            mix-blend-mode: multiply;
+            opacity: 0.08;}
+        .brush-underline {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .brush-underline::after {
+            content: "";
+            position: absolute;
+            left: -5%;
+            bottom: 5px;
+            width: 110%;
+            height: 18px;
+            background-color: #80011E;
+            z-index: -1;
+            transform: rotate(-1.2deg) skewx(-10deg);
+            clip-path: polygon(2% 10%, 98% 0%, 100% 85%, 5% 100%, 0% 50%);
+            opacity: 0.9;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .tech-crosshair {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+        }
+        .tech-crosshair::before, .tech-crosshair::after {
+            content: "";
+            position: absolute;
+            background: #80011E;
+        }
+        .tech-crosshair::before {
+            top: 11px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+        }
+        .tech-crosshair::after {
+            left: 11px;
+            top: 0;
+            height: 100%;
+            width: 1px;
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #80011E 20%, #80011E 80%, transparent);
+        }
+        .frosted-vault {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }.refined-footer {
+            background: #F9F7F2;
+            position: relative;
+            overflow: hidden;
+        }
+        .refined-footer::before {content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .ink-stain {
+            position: absolute;
+            bottom: -10%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(128,1,30,0.08) 0%, rgba(128,1,30,0) 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-white overflow-x-hidden antialiased">
+<div class="grain-overlay"></div>
+<header class="fixed top-0 left-0 w-full z-50 bg-rice-paper/90 backdrop-blur-md border-b border-black/5 transition-all duration-300">
+<div class="max-w-[1440px] mx-auto px-6 h-24 flex items-center justify-between">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="size-12 bg-primary text-white flex items-center justify-center font-display font-bold text-2xl border border-primary shadow-lg">
+                    Y
+                </div>
+<div class="flex flex-col">
+<h2 class="font-display font-bold text-xl tracking-tight uppercase text-ink-black">Yonko X</h2>
+<span class="text-[10px] tracking-[0.2em] uppercase text-primary font-bold">The Collective</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-display font-medium text-xs tracking-widest uppercase text-ink-black/60 hover:text-primary transition-colors" href="#">Vault</a>
+<a class="font-display font-medium text-xs tracking-widest uppercase text-ink-black/60 hover:text-primary transition-colors" href="#">Events</a>
+<a class="font-display font-medium text-xs tracking-widest uppercase text-ink-black/60 hover:text-primary transition-colors" href="#">The Lab</a>
+<a class="font-display font-medium text-xs tracking-widest uppercase text-ink-black/60 hover:text-primary transition-colors" href="#">Our Journey</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-3 px-4 py-2 border border-black/10 rounded-full">
+<span class="material-symbols-outlined text-primary text-[18px]">light_mode</span>
+<div class="w-8 h-4 bg-primary/20 rounded-full relative cursor-pointer">
+<div class="absolute left-0.5 top-0.5 w-3 h-3 bg-primary rounded-full"></div>
+</div>
+<span class="material-symbols-outlined text-ink-black/30 text-[18px]">dark_mode</span>
+</div>
+<button class="bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-ink-black transition-all tracking-widest border border-primary">
+                    Join the Collective
+                </button>
+</div>
+</div>
+</header>
+<section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 border-b border-black/5 bg-ink-wash">
+<div class="absolute left-[-2vw] top-1/2 -translate-y-1/2 text-ink-black/[0.04] text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">力</div>
+<div class="absolute right-[-2vw] top-1/2 -translate-y-1/2 text-ink-black/[0.04] text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">魂</div>
+<div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/20 to-rice-paper/50 pointer-events-none"></div>
+<div class="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-8 max-w-5xl">
+<div class="flex items-center gap-6 mb-2 opacity-80">
+<div class="h-[1px] w-12 bg-primary"></div>
+<p class="font-display text-xs tracking-[0.5em] uppercase text-primary font-bold">YONKO X MALAYSIA</p>
+<div class="h-[1px] w-12 bg-primary"></div>
+</div>
+<h1 class="font-display font-bold text-7xl md:text-[10rem] tracking-tighter uppercase leading-[0.85] text-ink-black drop-shadow-sm">
+                Defy<br/>
+<span class="brush-underline italic font-light text-ink-black">Gravity</span>
+</h1>
+<div class="mt-8 flex flex-col items-center gap-4">
+<p class="font-display text-xl md:text-2xl font-bold tracking-[0.1em] text-ink-black uppercase">Global Cheerleading Culture.</p>
+<p class="font-body text-sm tracking-[0.3em] text-primary uppercase font-semibold opacity-90">Home of International Stunt Clinics • Malaysia</p>
+</div>
+<div class="mt-16">
+<button class="bg-ink-black text-white font-display font-bold text-sm uppercase px-14 py-5 hover:bg-primary transition-all tracking-widest shadow-elegant hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                    Enter The Lab
+                </button>
+</div>
+</div>
+<div class="absolute bottom-12 right-12 hidden md:flex flex-col items-center gap-4 z-20">
+<span class="vertical-text font-display text-[10px] uppercase tracking-widest text-primary font-bold">Operational</span>
+<div class="h-16 w-[1px] bg-primary"></div>
+</div>
+</section>
+<section class="w-full bg-rice-paper relative py-32 border-b border-black/5">
+<div class="container mx-auto px-6 mb-20">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<span class="font-display text-xs font-bold text-primary uppercase tracking-[0.3em] mb-4 block">Most Hyped Upcoming Event</span>
+<h2 class="font-display font-bold text-5xl md:text-6xl uppercase tracking-tighter text-ink-black">Summit Series <span class="text-primary opacity-30">/</span></h2>
+</div>
+<div class="max-w-md md:text-right">
+<p class="font-body text-primary font-bold text-sm uppercase tracking-widest mb-2">Malaysia's Premier Stunt Clinic</p>
+<p class="font-body text-ink-black/60 text-sm">Hosting international elites in Kuala Lumpur twice a year for the definitive technical experience.</p>
+</div>
+</div>
+</div>
+<div class="container mx-auto max-w-[1440px] px-6">
+<div class="flex flex-col lg:flex-row w-full gap-8 items-center">
+<div class="w-full lg:w-[25%] group cursor-pointer">
+<div class="relative overflow-hidden aspect-[4/5] mb-6 border border-black/10 bg-surface-light shadow-card transition-shadow hover:shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwB7o-0vwVZf0RvmOkCw6p006NkokRy-xCfQu-eOvi6fbLeVU3Lv0BxYj3ifhqgiQDluQKNn1iBsesSD_TXq3p7CVbXHKMl17UMYN6aaWmhi3nZx-tQ_vR5vsAgwrqKZiqIN88evxNde7ghe-bwm296OS3PDZHk52vGb-9tt1l62SogAm3bZLXWE5V8vxrW90Pk25sBpZzmZMDKUn-aJygRxC-lm6AFq5LrM0bIvzAlMScq9ziqTBetQyPEekEOIGnV0JvhS1WsF8');"></div>
+<div class="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute top-0 left-0 bg-primary px-4 py-2">
+<span class="text-[10px] font-display font-bold uppercase tracking-widest text-white">Workshop 01</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl uppercase text-ink-black mb-1">Local Circuit</h3>
+<p class="text-primary font-mono text-xs tracking-wider">BI-WEEKLY WORKSHOPS</p>
+</div>
+<div class="w-full lg:w-[50%] group cursor-pointer relative z-10">
+<div class="relative overflow-hidden aspect-[16/10] shadow-elegant border border-primary/20 hover:border-primary transition-colors">
+<div class="absolute inset-0 bg-cover bg-center transition-all duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJfH3J1rUxZSGVDhR5TOUtr5wqpTGz25-VE5eU6mj3sL6oc8itKh3jyr5IH5bqv2aqeK7Sd36lLuu-tuDvs2nLDNpRIxiv-j_N_s_G7twrzfRuTIjbTOISv_WWuZj-BPNLu8el18lK5BMJF4LnOylwseFXYkEKTvEkysstrAe3-FLPLtNMvG2zsLd9dJ57B1hLyITmZGPTz2f1AkQkLP1MyfmpTfPJ-jpzKpcwX_91hL-qjD-xYp_-a7g10AGZ0kAsj4g6MNJZ7Ss'); filter: contrast(105%);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-10 left-10 right-10 flex flex-col items-start">
+<div class="bg-primary px-3 py-1 mb-6 shadow-glow">
+<span class="text-white text-[10px] font-bold uppercase tracking-[0.2em]">International Summit</span>
+</div>
+<h3 class="font-display font-bold text-5xl md:text-7xl uppercase text-white mb-3 italic tracking-tighter">Hailey &amp; Kollin</h3>
+<p class="text-white font-display text-sm uppercase tracking-widest flex items-center gap-4">
+<span class="w-8 h-[1px] bg-white"></span> Team USA Elite In Malaysia
+                            </p>
+</div>
+<div class="absolute top-8 right-8 flex items-center gap-3">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="font-mono text-[10px] text-white bg-black/60 px-3 py-1 backdrop-blur-sm border border-white/10">LIVE_KL_SESSION</span>
+</div>
+</div>
+<div class="mt-8 flex justify-between items-center px-2">
+<div class="flex flex-col">
+<h4 class="font-display font-bold text-2xl text-ink-black uppercase">The Main Event</h4>
+<p class="text-ink-black/50 text-xs uppercase tracking-widest mt-1">Kuala Lumpur • June 2024</p>
+</div>
+<button class="border border-black/20 px-8 py-3 text-xs font-bold uppercase text-ink-black hover:bg-ink-black hover:text-white transition-all tracking-wider">Reserve Spot</button>
+</div>
+</div>
+<div class="w-full lg:w-[25%] group cursor-pointer">
+<div class="relative overflow-hidden aspect-[4/5] mb-6 border border-black/10 bg-surface-light shadow-card transition-shadow hover:shadow-lg">
+<div class="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLDvQPyYngVb-ieRgR5E406-YVWMK2Vg38oJG87u_unFaURLNKL_GRwsDkbs2AtQcfsG7gR8PJxwjCa2n5k2one4cfPU3gCfaHA3sQ5TfT54C9j0D8qVXAj0QeZarYIQrZKAnnnzOdAB3Jegyq8wCjlZgDkXC1WdHCh45h2zCUnPjKvkjMRYG40quvm25nvztlVMxwkAp454o1A0KjdGadIfcaotXbVTfFGQsOeoW5dfLZUaXTdYRyosUMsVPBJvDZFzj3dTZxH0c');"></div>
+<div class="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute top-0 right-0 bg-surface-light border-l border-b border-black/10 px-4 py-2">
+<span class="text-[10px] font-display font-bold uppercase tracking-widest text-ink-black">Bi-Annual Clinic</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl uppercase text-ink-black mb-1">Winter Summit</h3>
+<p class="text-primary font-mono text-xs tracking-wider">DEC 2024</p>
+</div>
+</div>
+</div>
+</section>
+<section class="relative w-full py-32 overflow-hidden bg-surface-light border-b border-black/5">
+<div class="absolute inset-0 z-0 opacity-10" style="background-image: linear-gradient(#121212 1px, transparent 1px), linear-gradient(90deg, #121212 1px, transparent 1px); background-size: 60px 60px;"></div>
+<div class="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div class="relative group self-center">
+<div class="relative aspect-square border border-black/10 overflow-hidden shadow-elegant bg-white p-2">
+<div class="w-full h-full relative overflow-hidden">
+<img alt="Technical analysis" class="w-full h-full object-cover filter grayscale contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAJcW5_Y0h5N5zDQZvkFLW3E4CTgD309NbWqID_aFD_qHIv_N9FOnojwc3Sw2qaFpz9BSN9cj4ARNyhx_CA6vqWBgI0yjfM-ZkI5zRzaEx0dvvnNESftMm1GQrJhvohiRKS4q74EwzvTue3gz7HxjsLvmUduv0aaYAjSvH9kmmIqd94N09mu6jJ2jw34nlafJ3duW6IXPwP0vXoJCywoXnfGibod9nM5dhO1e5mMjmZ0MXfAAeY7Tr1UGQlnkyk6phTmql4b2vyjQ"/>
+</div>
+<div class="absolute top-[30%] left-[40%] tech-crosshair opacity-80"></div>
+<div class="absolute bottom-[20%] right-[30%] tech-crosshair opacity-80"></div>
+</div>
+<div class="absolute -bottom-8 -right-8 bg-primary p-10 hidden lg:block shadow-xl z-20">
+<span class="vertical-text font-display font-black text-3xl text-white/40">MALAYSIA</span>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<span class="font-display text-xs uppercase tracking-[0.4em] text-primary font-bold">Bi-Weekly Local Workshops</span>
+</div>
+<h2 class="font-display font-bold text-6xl uppercase text-ink-black mb-12 leading-none">The Lab</h2>
+<div class="space-y-10">
+<div class="border-l-2 border-primary pl-8 group hover:bg-white/40 transition-colors p-6 cursor-pointer rounded-r-sm">
+<span class="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">DECONSTRUCTION_01</span>
+<h4 class="font-display font-bold text-2xl uppercase text-ink-black mb-3 group-hover:text-primary transition-colors">Anatomy of the High Toss</h4>
+<p class="text-ink-black/70 text-sm leading-relaxed max-w-md">Mastering the explosive vertical velocity and the physics of terminal height transition in our local Kuala Lumpur sessions.</p>
+</div>
+<div class="border-l-2 border-primary pl-8 group hover:bg-white/40 transition-colors p-6 cursor-pointer rounded-r-sm">
+<span class="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">DECONSTRUCTION_02</span>
+<h4 class="font-display font-bold text-2xl uppercase text-ink-black mb-3 group-hover:text-primary transition-colors">Mastering the Extension Physics</h4>
+<p class="text-ink-black/70 text-sm leading-relaxed max-w-md">Bi-weekly deep dives into alignment and center-of-mass stabilization during high-impact hold cycles.</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-4 text-ink-black font-display text-xs font-bold uppercase tracking-widest mt-16 hover:text-primary transition-colors group" href="#">
+                    Book Local Workshop <span class="material-symbols-outlined text-sm transform group-hover:translate-x-2 transition-transform text-primary">arrow_forward_ios</span>
+</a>
+</div>
+</div>
+</section>
+<section class="py-32 bg-rice-paper border-b border-black/5">
+<div class="container mx-auto px-6 text-center mb-24">
+<h2 class="font-display font-bold text-5xl uppercase text-ink-black mb-6">Elite Community Leads</h2>
+<div class="w-24 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="group text-center">
+<div class="aspect-[3/4] bg-surface-light overflow-hidden relative mb-6 border border-black/5 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-card group-hover:shadow-lg">
+<img alt="Eric" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5tpibSE9Rr60DSOdqM4gItAo3CYzICH4lTUYj8pBDHq87XyLCR0hLjwdw-Cq9fSqPgY2aq0yB_YsQhw1PsyRxoOiDU_jy5WzfkAUa1eleLD-9kVmUddxyXizJBJgyRHq8assbqOOdxr3rfagL_S0H7yXR1pfSd4sWIK63bQvLfo0j2sQZFtjaUuOkbrIQLdZ3dIzeXlLV05QK3aj68BwkhVKAf_Qy8jax_U-wW2O9wiEcNXXDJ6FxyICnQbhIEus_X9R4dtc-pY"/>
+</div>
+<h3 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Eric</h3>
+<p class="text-primary text-[10px] font-mono uppercase tracking-widest">Stunt Physics Lead</p>
+</div>
+<div class="group text-center">
+<div class="aspect-[3/4] bg-surface-light overflow-hidden relative mb-6 border border-black/5 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-card group-hover:shadow-lg">
+<img alt="Shen Qian" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYt2TXuWoYQiviq2288hdibroQS-oeGECD56sl3lUf6Jf40aupx1lVW6wuR5mPK0uPmRMrboWLQ2YZsHrwM0ZsvLn2IzoJ-R_h60VvqtN2N6WPVoh0Wp7klb-N2O72J9PpHU27RsXqZIeyfgtqyLclX7W81CvdXh71AFELFFEWn1F-nGNwA6_osNQ3zgdxbQPYgaquv7yY4krsQRJWPBwP1pnJEp6UyeirKRog8ml0OezL6H70H5bIRm-CjMicGYit14nEfYyIy9g"/>
+</div>
+<h3 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Shen Qian</h3>
+<p class="text-primary text-[10px] font-mono uppercase tracking-widest">Biomechanics Analyst</p>
+</div>
+<div class="group text-center">
+<div class="aspect-[3/4] bg-surface-light overflow-hidden relative mb-6 border border-black/5 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-card group-hover:shadow-lg">
+<img alt="Mayven" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC85Da5KndKDpmj2I9EAPJQ1jK6qBJmSz2vh-YHrXnqLlpU30-VO49IDDcbf1h5axhwhhryR4zESctMidA1rSNaQbAyaunblJDWUyHJtrtnc04_JhEORp58qYutCpvknVi0dn_Tzbfr_JE51-_qnDpRvgqua8zYAcg4sAF6ei4iNqH5avx7jjEj5w_bQmGIO3L3M-SnI1JupCjWLu0krycB0Uo5z58YNJORvNv9TXOdKrGm1femw3WCLp0CAFn103iSwH7_0re5FQk"/>
+</div>
+<h3 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Mayven</h3>
+<p class="text-primary text-[10px] font-mono uppercase tracking-widest">Power Dynamics</p>
+</div>
+<div class="group text-center">
+<div class="aspect-[3/4] bg-surface-light overflow-hidden relative mb-6 border border-black/5 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-card group-hover:shadow-lg">
+<img alt="Marcus" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyrBUo0nQmCxxq0Y1DuHJ1XSmFf0aaKisZbt_SJvfDVwwMm0dL-NOL-1qfDLQMMxdN6JyOAx6dLZ84l-mVstMl46OT7e4NYzoACpK_QpTschUy7l7scoMURvpbHwI86gWW6sda6kKRB_CsfvLB559utRqm-SQJ7Mx-KP3H5bRRDLP39pla9ts6rENjaRG0wEBbRZ76x_fi0iXEHcxK0C6IVeorgh-wsT8B916bfyC4d-2VFLgyQTsvm4ohLq37AwaEdHxi20mxUM"/>
+</div>
+<h3 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Marcus</h3>
+<p class="text-primary text-[10px] font-mono uppercase tracking-widest">Elite Optimization</p>
+</div>
+</div>
+</section>
+<section class="py-32 bg-surface-light relative overflow-hidden">
+<div class="container mx-auto px-6">
+<h2 class="font-display font-bold text-5xl uppercase text-ink-black mb-24 text-center tracking-tighter">The Saga: Our Journey</h2>
+<div class="relative max-w-4xl mx-auto">
+<div class="absolute left-1/2 top-0 bottom-0 w-px timeline-line -translate-x-1/2 hidden md:block"></div>
+<div class="space-y-24 relative z-10">
+<div class="flex flex-col md:flex-row items-center gap-12 md:gap-0">
+<div class="md:w-1/2 md:pr-20 md:text-right">
+<h4 class="font-display font-bold text-2xl text-ink-black uppercase mb-2">Origins: Kuala Lumpur</h4>
+<p class="text-ink-black/60 text-sm leading-relaxed font-light">The birth of Yonko X in Malaysia. Establishing the hybrid methodology that merges engineering with elite stunt culture.</p>
+</div>
+<div class="w-4 h-4 rounded-full bg-primary border-4 border-rice-paper z-20 shadow-md"></div>
+<div class="md:w-1/2 md:pl-20">
+<span class="font-mono text-primary text-sm font-bold uppercase tracking-widest">Established 2021</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-0">
+<div class="md:w-1/2 md:pl-20">
+<h4 class="font-display font-bold text-2xl text-ink-black uppercase mb-2">Local Workshop Milestone</h4>
+<p class="text-ink-black/60 text-sm leading-relaxed font-light">Launching bi-weekly local workshops in KL, deconstructing the mechanics of stunting for the growing Malaysian community.</p>
+</div>
+<div class="w-6 h-6 rounded-full bg-white border-4 border-primary z-20 shadow-glow"></div>
+<div class="md:w-1/2 md:pr-20 md:text-right">
+<span class="font-mono text-primary text-sm font-bold uppercase tracking-widest">Current Active</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12 md:gap-0">
+<div class="md:w-1/2 md:pr-20 md:text-right">
+<h4 class="font-display font-bold text-2xl text-ink-black uppercase mb-2">International Clinics</h4>
+<p class="text-ink-black/60 text-sm leading-relaxed font-light">Upcoming major summits in Malaysia twice a year, inviting world-class athletes to our home turf.</p>
+</div>
+<div class="w-4 h-4 rounded-full bg-ink-black/20 border-4 border-rice-paper z-20"></div>
+<div class="md:w-1/2 md:pl-20">
+<span class="font-mono text-ink-black/40 text-sm font-bold uppercase tracking-widest">Upcoming 2025</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-rice-paper border-t border-black/5">
+<div class="container mx-auto px-6 mb-20 text-center">
+<span class="font-display text-[10px] font-bold text-primary uppercase tracking-[0.4em] mb-4 block">Limited Assets</span>
+<h2 class="font-display font-bold text-5xl uppercase text-ink-black mb-6">Merch Vault</h2>
+<div class="w-16 h-[2px] bg-primary mx-auto mb-6"></div>
+<p class="font-body text-ink-black/50 text-sm max-w-sm mx-auto uppercase tracking-widest">Available to the Collective only.</p>
+</div>
+<div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden p-12 frosted-vault relative shadow-card border border-black/5 transition-transform hover:-translate-y-2 duration-300">
+<img alt="Vanguard Hoodie" class="w-full h-full object-contain filter blur-2xl opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChaf0JPbdfBQE7q2SWmecj83vLkemfqSD1pAuo__akDkQnwEh7Z2ZH33kOwTo2mgFi_zPJdSwNA3184QFoKknCu_c-YdcjbZfvpZQNOWNl2q8QshoMx8ExxSRa_GDTfhL7ACeD9rUTPOMRir-TcdBZkh52kjUt-UATEPlNvdlUkNtjEjHXnbVb_IvD8ZrcJ0mwXHH5dmKq9bFgl6JBGsAi33pDJTu99HOahAwqLDuTEbs9oMKf1fobS_6-s9cKBZfcYfzJrI3NaAI"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 drop-shadow-sm">lock</span>
+<span class="font-display text-[10px] font-bold text-ink-black uppercase tracking-[0.3em]">MEMBER_ONLY</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Vanguard Hoodie</h4>
+<p class="text-ink-black/40 text-[10px] uppercase font-mono mb-2">Prototype // v1.0</p>
+<span class="text-primary font-mono text-sm tracking-widest">$--.--</span>
+</div>
+</div>
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden p-12 frosted-vault relative shadow-card border border-black/5 transition-transform hover:-translate-y-2 duration-300">
+<img alt="Stealth Cap" class="w-full h-full object-contain filter blur-2xl opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJNMqrglDLI6TvO2eiAPlUQxE_HojCxjR9IKY5qJ0EaK26ESeiyEKFV10IyXkU6cBumCzZM8Gv_foceQ2U3OAcyMeDPQIcKa68G0gjuXHbEXoABfJC1LdRMkBabCr0ayeAH0xcxTON154ytDS6sdkeyVwfIvi1cnknrZs5PBml2HcUH15MvUfVwFcgOtHqLH2tpkQepot1fP_hZhpDNc4RCauwhpCG1Rz4we3FPGRlx4zWAsuuKFIJmjn9Zd2ggBlSFg3l0-oVMc"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 drop-shadow-sm">lock</span>
+<span class="font-display text-[10px] font-bold text-ink-black uppercase tracking-[0.3em]">MEMBER_ONLY</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Stealth Cap</h4>
+<p class="text-ink-black/40 text-[10px] uppercase font-mono mb-2">Prototype // v0.8</p>
+<span class="text-primary font-mono text-sm tracking-widest">$--.--</span>
+</div>
+</div>
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden p-12 frosted-vault relative shadow-card border border-black/5 transition-transform hover:-translate-y-2 duration-300">
+<img alt="Apex Compression" class="w-full h-full object-contain filter blur-2xl opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9z43f5Nr-Xd8tEve-u2tMOU-t-e-cWafgTBiRiM5A8JvDs1tbVgDWETAiLTSXKVyRs8Vf-OMShfqbaF2HGoxXe1wh7gsQ8ALgwWdOm2W3xIPlh-UE7AGUEZnfIkQ2W_6lqCd6n2UYLgvyUcohE9oDvoi7Zuk2b6Wy-0pnidZnvGG7Nxl1nffjPJPFidLemWyPCPY9Y1zYzA1rdA_b_5JQ5f2u_MhZi88HX3XoT6gFXRdcVKnX8Ew16qhEkvwr630ZTRkzQlURM3E"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 drop-shadow-sm">lock</span>
+<span class="font-display text-[10px] font-bold text-ink-black uppercase tracking-[0.3em]">MEMBER_ONLY</span>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="font-display font-bold text-xl text-ink-black uppercase mb-1">Apex Compression</h4>
+<p class="text-ink-black/40 text-[10px] uppercase font-mono mb-2">Prototype // v2.1</p>
+<span class="text-primary font-mono text-sm tracking-widest">$--.--</span>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center">
+<button class="bg-transparent border border-ink-black text-ink-black font-display font-bold text-xs uppercase px-12 py-4 hover:bg-ink-black hover:text-white transition-all tracking-widest">
+                Request Member Access
+            </button>
+</div>
+</section>
+<footer class="refined-footer border-t border-black/5 text-ink-black py-24">
+<div class="ink-stain"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-primary flex items-center justify-center font-display font-bold text-xl text-white shadow-md">Y</div>
+<h2 class="font-display font-bold text-3xl uppercase tracking-tighter">Yonko X</h2>
+</div>
+<p class="font-body text-ink-black/60 font-light max-w-sm text-sm leading-relaxed uppercase tracking-wider">
+                        High-performance stunting collective. Based in Malaysia, hosting premier bi-annual international clinics and bi-weekly local technical workshops.
+                    </p>
+<div class="flex gap-4">
+<a class="w-12 h-12 border border-black/10 flex items-center justify-center hover:bg-primary group transition-all bg-white/50 backdrop-blur-sm" href="#">
+<span class="material-symbols-outlined text-sm group-hover:text-white">terminal</span>
+</a>
+<a class="w-12 h-12 border border-black/10 flex items-center justify-center hover:bg-primary group transition-all bg-white/50 backdrop-blur-sm" href="#">
+<span class="material-symbols-outlined text-sm group-hover:text-white">podcasts</span>
+</a>
+</div>
+</div>
+<div class="bg-white/60 p-12 border border-black/5 backdrop-blur-md shadow-card">
+<h3 class="font-display font-bold text-xl uppercase mb-2 text-ink-black">Join the Family</h3>
+<p class="text-ink-black/40 text-[10px] mb-8 uppercase tracking-widest">Receive technical updates and event alerts.</p>
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="bg-rice-paper border border-black/10 text-ink-black px-6 py-4 font-body text-sm placeholder-black/30 focus:border-primary focus:ring-0 w-full" placeholder="EMAIL@ADDRESS.COM" type="email"/>
+<button class="bg-primary text-white font-display font-bold text-xs uppercase px-10 py-4 hover:bg-ink-black transition-colors tracking-widest whitespace-nowrap shadow-md">
+                            Join Us
+                        </button>
+</form>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-black/10">
+<div class="flex flex-col gap-4">
+<h4 class="font-display font-bold uppercase text-[10px] tracking-widest text-primary mb-2">Clinics</h4>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Summit Series</a>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">The Lab KL</a>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Our Journey</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-display font-bold uppercase text-[10px] tracking-widest text-primary mb-2">Community</h4>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Merch Vault</a>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Elite Family</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-display font-bold uppercase text-[10px] tracking-widest text-primary mb-2">Connect</h4>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Inquiries</a>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Location</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-display font-bold uppercase text-[10px] tracking-widest text-primary mb-2">Info</h4>
+<a class="text-xs text-primary font-medium hover:text-ink-black transition-colors" href="#">Privacy</a>
+</div>
+</div>
+<div class="mt-20 pt-10 border-t border-black/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase text-ink-black/40 tracking-[0.3em]">
+<div>© 2024 Yonko X Collective. All Rights Reserved.</div>
+<div>Operational // Kuala Lumpur, Malaysia</div>
+</div>
+</div>
+</footer>
+
+</body></html>
