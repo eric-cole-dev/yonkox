@@ -124,7 +124,7 @@ export default function ReservationModal({
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
                         <h3 className="text-xl font-bold uppercase text-[var(--foreground)] mb-2">You're on the list!</h3>
-                        <p className="text-sm opacity-60 mb-6">We'll be in touch with payment details shortly.</p>
+                        <p className="text-sm opacity-60 mb-6 max-w-[80%] mx-auto">We'll contact you when there's an update, since everything is still in a "Coming Soon" state for now.</p>
                         <button 
                             onClick={onClose}
                             className="bg-[var(--foreground)] text-[var(--background)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors"
