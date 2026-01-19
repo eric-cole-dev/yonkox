@@ -13,7 +13,7 @@ export default function Hero() {
             src="/light-hero-bg.png" 
             alt="Hero Background Light" 
             fill 
-            className="object-cover block dark:hidden opacity-90"
+            className="object-cover block dark:hidden opacity-20"
             priority
         />
         <Image 
