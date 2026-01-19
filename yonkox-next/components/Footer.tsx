@@ -18,6 +18,14 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
+      <div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      ></div>
       <div className="ink-stain opacity-20"></div>
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">

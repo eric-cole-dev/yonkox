@@ -6,7 +6,15 @@ import { EASING, DURATION } from "@/lib/animation-config";
 export default function JourneySection() {
   return (
     <section id="journey" className="py-32 bg-[var(--surface)] relative overflow-hidden">
-      <div className="container mx-auto px-6">
+      <div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      ></div>
+      <div className="container mx-auto px-6 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -14,7 +22,7 @@ export default function JourneySection() {
           transition={{ duration: DURATION.slow }}
           className="font-display font-bold text-5xl uppercase text-[var(--foreground)] mb-24 text-center tracking-tighter"
         >
-          The Saga: Our Journey
+          The Evolution: Our Journey
         </motion.h2>
 
         <div className="relative max-w-4xl mx-auto">
