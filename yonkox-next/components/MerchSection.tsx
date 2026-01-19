@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { EASING, DURATION, STAGGER } from "@/lib/animation-config";
 import Image from "next/image";
+import { useState } from "react";
+import ReservationModal from "./ReservationModal";
 
 const PRODUCTS = [
   {
@@ -23,8 +25,16 @@ const PRODUCTS = [
 ];
 
 export default function MerchSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="merch" className="py-32 bg-[var(--background)] border-t border-[var(--neutral-900)]/5">
+      <ReservationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultEvent="Merch Access Request" 
+      />
+
       <div className="container mx-auto px-6 mb-20 text-center">
         <span className="font-display text-[10px] font-bold text-primary uppercase tracking-[0.4em] mb-4 block">
           Limited Assets
@@ -83,7 +93,10 @@ export default function MerchSection() {
       </div>
 
       <div className="mt-20 text-center">
-        <button className="bg-transparent border border-[var(--foreground)] text-[var(--foreground)] font-display font-bold text-xs uppercase px-12 py-4 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="bg-transparent border border-[var(--foreground)] text-[var(--foreground)] font-display font-bold text-xs uppercase px-12 py-4 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest cursor-pointer"
+        >
           Request Member Access
         </button>
       </div>
