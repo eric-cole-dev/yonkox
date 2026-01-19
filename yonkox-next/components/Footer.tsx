@@ -36,7 +36,7 @@ export default function Footer() {
                     src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
                     alt="Yonko X Logo" 
                     fill
-                    className="object-contain"
+                    className="object-contain dark:brightness-150 dark:contrast-125"
                 />
               </div>
               <h2 className="font-display font-bold text-4xl uppercase tracking-tighter">
