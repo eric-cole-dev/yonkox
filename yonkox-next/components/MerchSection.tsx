@@ -6,18 +6,18 @@ import Image from "next/image";
 
 const PRODUCTS = [
   {
-    name: "Vanguard Hoodie",
+    name: "Ares Technical Jacket",
     version: "v1.0",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuChaf0JPbdfBQE7q2SWmecj83vLkemfqSD1pAuo__akDkQnwEh7Z2ZH33kOwTo2mgFi_zPJdSwNA3184QFoKknCu_c-YdcjbZfvpZQNOWNl2q8QshoMx8ExxSRa_GDTfhL7ACeD9rUTPOMRir-TcdBZkh52kjUt-UATEPlNvdlUkNtjEjHXnbVb_IvD8ZrcJ0mwXHH5dmKq9bFgl6JBGsAi33pDJTu99HOahAwqLDuTEbs9oMKf1fobS_6-s9cKBZfcYfzJrI3NaAI",
   },
   {
-    name: "Stealth Cap",
-    version: "v0.8",
+    name: "Elite Performance Tee",
+    version: "v1.2",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCCJNMqrglDLI6TvO2eiAPlUQxE_HojCxjR9IKY5qJ0EaK26ESeiyEKFV10IyXkU6cBumCzZM8Gv_foceQ2U3OAcyMeDPQIcKa68G0gjuXHbEXoABfJC1LdRMkBabCr0ayeAH0xcxTON154ytDS6sdkeyVwfIvi1cnknrZs5PBml2HcUH15MvUfVwFcgOtHqLH2tpkQepot1fP_hZhpDNc4RCauwhpCG1Rz4we3FPGRlx4zWAsuuKFIJmjn9Zd2ggBlSFg3l0-oVMc",
   },
   {
-    name: "Apex Compression",
-    version: "v2.1",
+    name: "Shadow Graphix Tee",
+    version: "v2.0",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9z43f5Nr-Xd8tEve-u2tMOU-t-e-cWafgTBiRiM5A8JvDs1tbVgDWETAiLTSXKVyRs8Vf-OMShfqbaF2HGoxXe1wh7gsQ8ALgwWdOm2W3xIPlh-UE7AGUEZnfIkQ2W_6lqCd6n2UYLgvyUcohE9oDvoi7Zuk2b6Wy-0pnidZnvGG7Nxl1nffjPJPFidLemWyPCPY9Y1zYzA1rdA_b_5JQ5f2u_MhZi88HX3XoT6gFXRdcVKnX8Ew16qhEkvwr630ZTRkzQlURM3E",
   },
 ];
@@ -77,9 +77,6 @@ export default function MerchSection() {
               <p className="text-[var(--foreground)] opacity-40 text-[10px] uppercase font-mono mb-2">
                 Prototype // {product.version}
               </p>
-              <span className="text-primary font-mono text-sm tracking-widest">
-                $--.--
-              </span>
             </div>
           </motion.div>
         ))}

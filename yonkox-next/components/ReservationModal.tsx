@@ -194,6 +194,7 @@ export default function ReservationModal({
                             <option value="Hailey & Kollin Summit">Hailey & Kollin Summit (May)</option>
                             <option value="Special Guest Summit">Special Guest Summit (Sept/Oct)</option>
                             <option value="Local Circuit Workshop">Local Circuit Workshop</option>
+                            <option value="The Lab - Show Interest">The Lab - Show Interest</option>
                         </select>
                     </div>
 

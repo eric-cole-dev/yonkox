@@ -3,10 +3,20 @@
 import { motion } from "framer-motion";
 import { EASING, DURATION } from "@/lib/animation-config";
 import Image from "next/image";
+import { useState } from "react";
+import ReservationModal from "./ReservationModal";
 
 export default function TheLabSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="lab" className="relative w-full py-32 overflow-hidden bg-[var(--surface)] border-b border-[var(--neutral-900)]/5">
+      <ReservationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultEvent="The Lab - Show Interest"
+      />
+
       <div
         className="absolute inset-0 z-0 opacity-10"
         style={{
@@ -37,6 +47,13 @@ export default function TheLabSection() {
             </div>
             <div className="absolute top-[30%] left-[40%] tech-crosshair opacity-80"></div>
             <div className="absolute bottom-[20%] right-[30%] tech-crosshair opacity-80"></div>
+            
+            {/* Coming Soon Overlay */}
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[2px]">
+                <div className="bg-primary/90 text-white px-6 py-3 transform -rotate-12 border border-white/20 shadow-xl">
+                    <span className="font-display font-bold text-xl tracking-[0.2em] uppercase">Coming Soon</span>
+                </div>
+            </div>
           </div>
           <div className="absolute -bottom-8 -right-8 bg-primary p-10 hidden lg:block shadow-xl z-20">
             <span className="vertical-text font-display font-black text-3xl text-white/40">
@@ -64,7 +81,7 @@ export default function TheLabSection() {
             The Lab
           </h2>
           <div className="space-y-10">
-            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm">
+            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm opacity-60">
               <span className="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">
                 DECONSTRUCTION_01
               </span>
@@ -76,7 +93,7 @@ export default function TheLabSection() {
                 terminal height transition in our local Kuala Lumpur sessions.
               </p>
             </div>
-            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm">
+            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm opacity-60">
               <span className="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">
                 DECONSTRUCTION_02
               </span>
@@ -89,15 +106,15 @@ export default function TheLabSection() {
               </p>
             </div>
           </div>
-          <a
-            className="inline-flex items-center gap-4 text-[var(--foreground)] font-display text-xs font-bold uppercase tracking-widest mt-16 hover:text-primary transition-colors group"
-            href="#"
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center gap-4 text-[var(--foreground)] font-display text-xs font-bold uppercase tracking-widest mt-16 hover:text-primary transition-colors group text-left"
           >
-            Book Local Workshop{" "}
+            Show Interest <span className="opacity-50 text-[10px] ml-1">(Coming Soon)</span>
             <span className="material-symbols-outlined text-sm transform group-hover:translate-x-2 transition-transform text-primary">
               arrow_forward_ios
             </span>
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

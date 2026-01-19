@@ -71,3 +71,20 @@ Google Apps Script simple triggers (like `doPost`) can be tricky with CORS (Cros
 The provided React code uses `mode: "no-cors"` which allows the request to reach Google, but the browser won't be able to read the response (so it won't know for sure if it succeeded, but the data will be saved).
 
 This is why we set `setStatus("success")` optimistically in the code or use a delay. For a production app, you might want to set up a Next.js API route as a proxy, but this "no-cors" method is the simplest way to get started without backend infrastructure.
+
+## Handling Multiple Event Types (e.g., The Lab Interest)
+
+The script above collects all submissions into a single sheet. The `Event` column will differentiate between:
+- "Hailey & Kollin Summit"
+- "Special Guest Summit"
+- "Local Circuit Workshop"
+- "The Lab - Show Interest"
+
+**To Separate Data:**
+You don't need to change the script! You can use Google Sheets features:
+1.  **Create a New Tab** in your Google Sheet (e.g., name it "Lab Interest").
+2.  **Use a Formula** in cell A1 of the new tab:
+    `=QUERY(Sheet1!A:F, "SELECT * WHERE F = 'The Lab - Show Interest'", 1)`
+    *(Replace 'Sheet1' with the actual name of your main tab)*
+
+This will automatically copy all "Lab Interest" submissions to the new tab as they come in.
