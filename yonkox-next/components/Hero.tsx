@@ -20,12 +20,12 @@ export default function Hero() {
             src="/dark-hero-bg.png" 
             alt="Hero Background Dark" 
             fill 
-            className="object-cover hidden dark:block opacity-90"
+            className="object-cover hidden dark:block"
             priority
         />
       </div>
 
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/20 to-white/80 dark:from-transparent dark:via-[var(--background)]/20 dark:to-[var(--background)]/50 pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-white/10 dark:from-transparent dark:to-black/40 pointer-events-none"></div>
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-8 max-w-5xl">
         <motion.div
