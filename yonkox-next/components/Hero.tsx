@@ -5,13 +5,13 @@ import { EASING, DURATION, STAGGER } from "@/lib/animation-config";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 border-b border-[var(--neutral-900)]/5 bg-[var(--background-image-ink-wash)]">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 border-b border-[var(--neutral-900)]/5 bg-white dark:bg-[var(--background)]">
       {/* Background Kanji */}
-      <div className="absolute left-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-[0.04] text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
-        力
+      <div className="absolute left-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-10 text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
+        四
       </div>
-      <div className="absolute right-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-[0.04] text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
-        魂
+      <div className="absolute right-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-10 text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
+        皇
       </div>
 
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-[var(--background)]/20 to-[var(--background)]/50 pointer-events-none"></div>

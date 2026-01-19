@@ -54,10 +54,10 @@ export default function Navbar() {
     >
       <div className="max-w-[1440px] mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-4 group cursor-pointer">
-          <div className="size-12 bg-primary text-white flex items-center justify-center font-display font-bold text-2xl border border-primary shadow-lg relative overflow-hidden">
-             <div className="absolute inset-0 flex items-center justify-center p-1 bg-[var(--background)]">
+          <div className="size-12 flex items-center justify-center relative overflow-hidden">
+             <div className="absolute inset-0 flex items-center justify-center">
                 <Image 
-                    src={isDarkMode ? "/lightmode-yonkox-nobg.png" : "/dark-yonkox-nobg.png"} 
+                    src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
                     alt="Yonko X Logo" 
                     fill
                     className="object-contain"
