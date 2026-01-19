@@ -14,54 +14,63 @@ export default function TermsPage() {
           </p>
 
           <div className="bg-primary/10 border-l-4 border-primary p-6 mb-12">
-            <h3 className="font-display font-bold text-xl uppercase mb-2 text-primary">Critical Liability Warning</h3>
+            <h3 className="font-display font-bold text-xl uppercase mb-2 text-primary">CRITICAL: RELEASE AND WAIVER OF LIABILITY</h3>
             <p className="opacity-80 text-sm">
-              Participation in YonkoX workshops and events involves high-impact physical activity. By participating, you acknowledge and accept the inherent risks of injury.
+              PLEASE READ THIS SECTION CAREFULLY. BY PARTICIPATING, YOU ARE GIVING UP LEGAL RIGHTS.
             </p>
           </div>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">1. Agreement to Terms</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">1. Definitions</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              By accessing our website and participating in our workshops, events, or purchasing our merchandise, you agree to be bound by these Terms and Conditions. If you disagree with any part of the terms, then you may not access the Service.
+              <strong>"Activity"</strong> refers to all workshops, clinics, training sessions, and events organized by YonkoX, involving cheerleading, gymnastics, stunting, and tumbling.<br/>
+              <strong>"Releasee"</strong> refers to YonkoX, its directors, officers, employees, volunteers, agents, and facility owners.<br/>
+              <strong>"Releasor"</strong> refers to the participant (or their legal guardian if under 18).
             </p>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">2. Assumption of Risk & Liability Waiver</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">2. Assumption of Risk</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              You explicitly acknowledge that cheerleading and stunting are physical activities that involve rotation, inversion, and height, which carry an inherent risk of injury, including but not limited to catastrophic injury, paralysis, or death.
+              The Releasor explicitly acknowledges that the Activity involves inherent risks, including but not limited to: inversion, rotation, heights, contact with other participants, and landing on varying surfaces. 
             </p>
             <p className="opacity-70 leading-relaxed mb-4">
-              By registering for any YonkoX event, you hereby release, waive, discharge, and covenant not to sue YonkoX, its directors, officers, agents, employees, and volunteers from any and all liability, claims, demands, actions, and causes of action whatsoever arising out of or related to any loss, damage, or injury, including death, that may be sustained by you.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">3. Medical Fitness</h2>
-            <p className="opacity-70 leading-relaxed mb-4">
-              You represent and warrant that you are physically fit and have no medical condition that would prevent your full participation in our workshops. It is your responsibility to consult with a physician prior to participating.
+              The Releasor understands that these risks can result in serious physical injury, including permanent paralysis, brain injury, or death. The Releasor voluntarily assumes all such risks, both known and unknown, even if arising from the negligence of the Releasee.
             </p>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">4. Code of Conduct</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">3. Release of Liability</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              In consideration of being allowed to participate, the Releasor hereby forever releases, waives, discharges, and covenants not to sue the Releasee from any and all liability for any loss, damage, or injury (including death) that may be sustained by the Releasor, whether caused by the negligence of the Releasee or otherwise, to the fullest extent permitted by the <strong>Civil Law Act 1956</strong> and <strong>Contracts Act 1950</strong> of Malaysia.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">4. Indemnification</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              The Releasor agrees to indemnify and hold harmless the Releasee from any loss, liability, damage, or costs, including court costs and legal fees, that the Releasee may incur due to the Releasor's participation in the Activity, whether caused by negligence or otherwise.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">5. Medical Authorization</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              In the event of an injury or medical emergency, the Releasor grants permission to the Releasee to secure whatever medical treatment is deemed necessary, including calling an ambulance. The Releasor agrees to be solely responsible for all costs associated with such medical care.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">6. Code of Conduct</h2>
             <p className="opacity-70 leading-relaxed mb-4">
               YonkoX maintains a strict policy of respect and safety. We reserve the right to remove any participant who exhibits unsafe behavior, harassment, or fails to follow instruction from our coaches, without refund.
             </p>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">5. Intellectual Property</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">7. Severability & Governing Law</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              The content, organization, graphics, design, compilation, magnetic translation, digital conversion and other matters related to the Site are protected under applicable copyrights, trademarks and other proprietary rights.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">6. Governing Law</h2>
-            <p className="opacity-70 leading-relaxed mb-4">
-              These Terms shall be governed and construed in accordance with the laws of <strong>Malaysia</strong>, without regard to its conflict of law provisions. Any dispute arising from these terms shall be subject to the exclusive jurisdiction of the courts of Malaysia.
+              If any provision of this agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force and effect. These Terms shall be governed by and construed in accordance with the laws of <strong>Malaysia</strong>.
             </p>
           </section>
         </div>

@@ -55,11 +55,11 @@ export default function PrivacyPage() {
               <strong>We do not use third-party tracking or advertising cookies.</strong>
             </p>
             <p className="opacity-70 leading-relaxed mb-4">
-              We utilize <strong>Local Storage</strong> solely for functionality:
+              We utilize <strong>Local Storage</strong> solely for the following strictly necessary and functional purposes:
             </p>
             <ul className="list-disc pl-6 opacity-70 space-y-2">
-              <li><strong>theme:</strong> Stores your preference for Light or Dark mode.</li>
-              <li><strong>cookie_consent:</strong> Stores your acknowledgement of this policy.</li>
+              <li><strong>Strictly Necessary Storage:</strong> Required to remember your consent to this privacy policy so you are not asked again.</li>
+              <li><strong>Functionality Storage:</strong> Used to remember your site preferences, specifically your choice between Light and Dark mode, to provide a consistent visual experience.</li>
             </ul>
           </section>
 
