@@ -53,18 +53,30 @@ export default function Hero() {
             </motion.span>
           </div>
           <div className="relative inline-block">
-            <motion.span
-              initial={{ y: "110%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: DURATION.heroReveal, ease: EASING.smooth, delay: STAGGER.loose }}
-              className="block italic font-light text-[var(--foreground)] relative z-10"
-            >
-              Gravity
-            </motion.span>
+            <div className="italic font-light text-[var(--foreground)] relative z-10 flex">
+              {"Gravity".split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    ease: EASING.smooth,
+                    delay: STAGGER.loose + (i * 0.08) // Staggered start
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
             <motion.div 
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ delay: DURATION.heroReveal + STAGGER.loose + 0.2, duration: 0.6, ease: EASING.smooth }}
+              transition={{ 
+                delay: STAGGER.loose, // Sync with first letter
+                duration: 0.8, 
+                ease: EASING.smooth 
+              }}
               className="absolute left-[-5%] bottom-[5px] w-[110%] h-[18px] bg-primary -z-0 origin-left"
               style={{
                 transform: "rotate(-1.2deg) skewX(-10deg)",
