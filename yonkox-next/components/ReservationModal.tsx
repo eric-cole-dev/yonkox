@@ -142,7 +142,7 @@ export default function ReservationModal({
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-black/5 border border-black/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-black/20"
+                        className="w-full bg-[var(--foreground)]/5 dark:bg-white/10 border border-[var(--foreground)]/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-[var(--foreground)]/30"
                         placeholder="YONKO X"
                         />
                     </div>
@@ -154,7 +154,7 @@ export default function ReservationModal({
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-black/5 border border-black/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-black/20"
+                        className="w-full bg-[var(--foreground)]/5 dark:bg-white/10 border border-[var(--foreground)]/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-[var(--foreground)]/30"
                         placeholder="hello@yonkox.com"
                         />
                     </div>
@@ -167,7 +167,7 @@ export default function ReservationModal({
                             required
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full bg-black/5 border border-black/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-black/20"
+                            className="w-full bg-[var(--foreground)]/5 dark:bg-white/10 border border-[var(--foreground)]/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-[var(--foreground)]/30"
                             placeholder="+60 12-345 6789"
                             />
                         </div>
@@ -178,7 +178,7 @@ export default function ReservationModal({
                             name="instagram"
                             value={formData.instagram}
                             onChange={handleChange}
-                            className="w-full bg-black/5 border border-black/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-black/20"
+                            className="w-full bg-[var(--foreground)]/5 dark:bg-white/10 border border-[var(--foreground)]/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder:text-[var(--foreground)]/30"
                             placeholder="@username"
                             />
                         </div>
@@ -189,7 +189,7 @@ export default function ReservationModal({
                         name="event"
                         value={formData.event}
                         onChange={handleChange}
-                        className="w-full bg-black/5 border border-black/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
+                        className="w-full bg-[var(--foreground)]/5 dark:bg-white/10 border border-[var(--foreground)]/10 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
                         >
                             <option value="Hailey & Kollin Summit">Hailey & Kollin Summit (May)</option>
                             <option value="Special Guest Summit">Special Guest Summit (Sept/Oct)</option>
