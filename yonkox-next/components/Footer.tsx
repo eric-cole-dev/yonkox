@@ -19,7 +19,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="footer" className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
+    <footer id="footer" className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-16 md:py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
       <ReservationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -38,7 +38,7 @@ export default function Footer() {
       ></div>
       <div className="ink-stain opacity-20"></div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 mb-16 md:mb-20">
           <div className="space-y-8">
             <div className="flex items-center gap-6">
               <div className="size-24 relative overflow-hidden">
@@ -77,7 +77,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="bg-[var(--background)]/40 p-12 border border-[var(--neutral-900)]/10 backdrop-blur-md shadow-card">
+          <div className="bg-[var(--background)]/40 p-6 md:p-12 border border-[var(--neutral-900)]/10 backdrop-blur-md shadow-card">
             <h3 className="font-display font-bold text-xl uppercase mb-2 text-[var(--foreground)]">
               Join the Family
             </h3>
