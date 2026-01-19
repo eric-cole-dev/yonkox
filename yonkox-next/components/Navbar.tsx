@@ -198,10 +198,9 @@ export default function Navbar() {
                 <span className={`material-symbols-outlined text-[18px] transition-colors ${isDarkMode ? 'text-primary' : 'text-[var(--neutral-500)]'}`}>dark_mode</span>
               </div>
   
-              <a href="/join" className="bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
-                Join the Collective
-              </a>
-            </div>
+                          <a href="#footer" className="bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
+                            Join the Collective
+                          </a>            </div>
           </div>
         </motion.header>
       </>

@@ -17,7 +17,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
+    <footer id="footer" className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
       <div
         className="absolute inset-0 z-0 opacity-10"
         style={{
