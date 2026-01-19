@@ -145,7 +145,7 @@ const ThemeTransitionOverlay = ({
       initial={{ clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
       animate={{ clipPath: "polygon(0 0, 150% 0, 100% 100%, 0% 100%)" }}
       exit={{ clipPath: "polygon(100% 0, 150% 0, 100% 100%, 100% 100%)" }}
-      transition={{ duration: 1.2, ease: [0.87, 0, 0.13, 1] }}
+      transition={{ duration: 0.7, ease: [0.87, 0, 0.13, 1] }}
       onAnimationComplete={(definition) => {
         // If we finished the 'animate' phase (covering screen)
         if ((definition as any).clipPath === "polygon(0 0, 150% 0, 100% 100%, 0% 100%)") {
