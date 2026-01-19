@@ -74,7 +74,7 @@ export default function Hero() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ 
-                delay: STAGGER.loose, // Sync with first letter
+                delay: STAGGER.loose + 0.4, 
                 duration: 0.8, 
                 ease: EASING.smooth 
               }}
