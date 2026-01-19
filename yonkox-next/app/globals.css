@@ -3,6 +3,7 @@
 @theme {
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-manrope);
+  --font-accent: var(--font-oswald);
 
   --color-primary: #80011E;
   --color-secondary: #383838;

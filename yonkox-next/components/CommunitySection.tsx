@@ -24,7 +24,7 @@ const LEADS = [
 
 export default function CommunitySection() {
   return (
-    <section className="py-32 bg-[var(--background)] border-b border-[var(--neutral-900)]/5">
+    <section id="community" className="py-32 bg-[var(--background)] border-b border-[var(--neutral-900)]/5">
       <div className="container mx-auto px-6 text-center mb-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

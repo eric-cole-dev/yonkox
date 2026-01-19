@@ -49,7 +49,7 @@ export default function Footer() {
                     className="object-contain dark:brightness-150 dark:contrast-125"
                 />
               </div>
-              <h2 className="font-display font-bold text-4xl uppercase tracking-tighter">
+              <h2 className="font-accent font-bold text-4xl uppercase tracking-tighter">
                 Yonko X
               </h2>
             </div>
@@ -130,7 +130,7 @@ export default function Footer() {
             </a>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#community"
             >
               Elite Family
             </a>
@@ -147,7 +147,7 @@ export default function Footer() {
             </a>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#footer"
             >
               Location
             </a>

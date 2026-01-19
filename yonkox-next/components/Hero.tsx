@@ -35,7 +35,7 @@ export default function Hero() {
           className="flex items-center gap-6 mb-2"
         >
           <div className="h-[1px] w-12 bg-primary"></div>
-          <p className="font-display text-xs tracking-[0.5em] uppercase text-primary font-bold">
+          <p className="font-accent text-sm tracking-[0.5em] uppercase text-primary font-bold">
             YONKO X MALAYSIA
           </p>
           <div className="h-[1px] w-12 bg-primary"></div>
