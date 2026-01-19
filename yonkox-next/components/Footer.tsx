@@ -147,9 +147,9 @@ export default function Footer() {
             </a>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#footer"
+              href="/terms"
             >
-              Location
+              Terms & Conditions
             </a>
           </div>
           <div className="flex flex-col gap-4">
@@ -158,9 +158,15 @@ export default function Footer() {
             </h4>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="/privacy"
             >
               Privacy
+            </a>
+            <a
+              className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
+              href="/privacy"
+            >
+              Cookies
             </a>
           </div>
         </div>
