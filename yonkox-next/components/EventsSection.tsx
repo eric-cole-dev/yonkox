@@ -1,12 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { EASING, DURATION, STAGGER } from "@/lib/animation-config";
+import { EASING, DURATION } from "@/lib/animation-config";
 import Image from "next/image";
+import { useState } from "react";
+import ReservationModal from "./ReservationModal";
 
 export default function EventsSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState("Hailey & Kollin Summit");
+
+  const openModal = (eventName: string) => {
+    setSelectedEvent(eventName);
+    setIsModalOpen(true);
+  };
+
   return (
     <section id="events" className="w-full bg-[var(--background)] relative py-32 border-b border-[var(--neutral-900)]/5">
+      <ReservationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultEvent={selectedEvent}
+      />
+      
       <div className="container mx-auto px-6 mb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -28,7 +44,7 @@ export default function EventsSection() {
               Malaysia's Premier Stunt Clinic
             </p>
             <p className="font-body text-[var(--foreground)] opacity-60 text-sm">
-              Hosting international elites in Kuala Lumpur twice a year for the
+              Hosting international elites in Kuala Lumpur for the
               definitive technical experience.
             </p>
           </div>
@@ -44,6 +60,7 @@ export default function EventsSection() {
             viewport={{ once: true }}
             transition={{ duration: DURATION.sectionReveal, delay: 0 }}
             className="w-full lg:w-[25%] group cursor-pointer"
+            onClick={() => openModal("Local Circuit Workshop")}
           >
             <div className="relative overflow-hidden aspect-[4/5] mb-6 border border-[var(--neutral-900)]/10 bg-[var(--surface)] shadow-card transition-shadow hover:shadow-lg">
               <div className="absolute inset-0">
@@ -77,7 +94,9 @@ export default function EventsSection() {
             transition={{ duration: DURATION.sectionReveal, delay: 0.1 }}
             className="w-full lg:w-[50%] group cursor-pointer relative z-10"
           >
-            <div className="relative overflow-hidden aspect-[16/10] shadow-elegant border border-primary/20 hover:border-primary transition-colors">
+            <div className="relative overflow-hidden aspect-[16/10] shadow-elegant border border-primary/20 hover:border-primary transition-colors"
+                onClick={() => openModal("Hailey & Kollin Summit")}
+            >
               <div className="absolute inset-0">
                 <Image
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJfH3J1rUxZSGVDhR5TOUtr5wqpTGz25-VE5eU6mj3sL6oc8itKh3jyr5IH5bqv2aqeK7Sd36lLuu-tuDvs2nLDNpRIxiv-j_N_s_G7twrzfRuTIjbTOISv_WWuZj-BPNLu8el18lK5BMJF4LnOylwseFXYkEKTvEkysstrAe3-FLPLtNMvG2zsLd9dJ57B1hLyITmZGPTz2f1AkQkLP1MyfmpTfPJ-jpzKpcwX_91hL-qjD-xYp_-a7g10AGZ0kAsj4g6MNJZ7Ss"
@@ -117,28 +136,32 @@ export default function EventsSection() {
                   The Main Event
                 </h4>
                 <p className="text-[var(--foreground)] opacity-50 text-xs uppercase tracking-widest mt-1">
-                  Kuala Lumpur • June 2024
+                  Kuala Lumpur • May 2026
                 </p>
               </div>
-              <button className="border border-[var(--neutral-900)]/20 px-8 py-3 text-xs font-bold uppercase text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-wider">
+              <button 
+                onClick={() => openModal("Hailey & Kollin Summit")}
+                className="border border-[var(--neutral-900)]/20 px-8 py-3 text-xs font-bold uppercase text-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-wider"
+              >
                 Reserve Spot
               </button>
             </div>
           </motion.div>
 
-          {/* Card 3 */}
+          {/* Card 3 - Replaced Winter Summit */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: DURATION.sectionReveal, delay: 0.2 }}
             className="w-full lg:w-[25%] group cursor-pointer"
+            onClick={() => openModal("Special Guest Summit")}
           >
             <div className="relative overflow-hidden aspect-[4/5] mb-6 border border-[var(--neutral-900)]/10 bg-[var(--surface)] shadow-card transition-shadow hover:shadow-lg">
               <div className="absolute inset-0">
                 <Image
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLDvQPyYngVb-ieRgR5E406-YVWMK2Vg38oJG87u_unFaURLNKL_GRwsDkbs2AtQcfsG7gR8PJxwjCa2n5k2one4cfPU3gCfaHA3sQ5TfT54C9j0D8qVXAj0QeZarYIQrZKAnnnzOdAB3Jegyq8wCjlZgDkXC1WdHCh45h2zCUnPjKvkjMRYG40quvm25nvztlVMxwkAp454o1A0KjdGadIfcaotXbVTfFGQsOeoW5dfLZUaXTdYRyosUMsVPBJvDZFzj3dTZxH0c"
-                  alt="Winter Summit"
+                  alt="Special Guest"
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
                 />
@@ -146,15 +169,15 @@ export default function EventsSection() {
               <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-colors"></div>
               <div className="absolute top-0 right-0 bg-[var(--surface)] border-l border-b border-[var(--neutral-900)]/10 px-4 py-2">
                 <span className="text-[10px] font-display font-bold uppercase tracking-widest text-[var(--foreground)]">
-                  Bi-Annual Clinic
+                  Upcoming
                 </span>
               </div>
             </div>
             <h3 className="font-display font-bold text-2xl uppercase text-[var(--foreground)] mb-1">
-              Winter Summit
+              Special Guest
             </h3>
             <p className="text-primary font-mono text-xs tracking-wider">
-              DEC 2024
+              SEPT/OCT 2026
             </p>
           </motion.div>
         </div>
