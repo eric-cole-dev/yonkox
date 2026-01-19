@@ -8,12 +8,14 @@ interface ReservationModalProps {
   isOpen: boolean;
   onClose: () => void;
   defaultEvent?: string;
+  customMessage?: string;
 }
 
 export default function ReservationModal({
   isOpen,
   onClose,
   defaultEvent = "Hailey & Kollin Summit",
+  customMessage,
 }: ReservationModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -76,6 +78,8 @@ export default function ReservationModal({
     }
   };
 
+  const isNewsletter = formData.event === "Join Family / Newsletter";
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -109,9 +113,20 @@ export default function ReservationModal({
 
               <div className="p-8">
                 <div className="mb-6">
-                    <span className="text-primary text-xs font-bold uppercase tracking-widest block mb-2">Join The Movement</span>
-                    <h2 className="text-3xl font-display font-bold uppercase text-[var(--foreground)] tracking-tighter">Reserve Spot</h2>
-                    <p className="text-[var(--foreground)] opacity-60 text-sm mt-2">Secure your place at the upcoming summit.</p>
+                    <span className="text-primary text-xs font-bold uppercase tracking-widest block mb-2">
+                        {isNewsletter ? "Stay Connected" : "Join The Movement"}
+                    </span>
+                    <h2 className="text-3xl font-display font-bold uppercase text-[var(--foreground)] tracking-tighter">
+                        {isNewsletter ? "Join Family" : "Reserve Spot"}
+                    </h2>
+                    <p className="text-[var(--foreground)] opacity-60 text-sm mt-2">
+                        {isNewsletter ? "Get exclusive updates on clinics, drops, and local events." : "Secure your place at the upcoming summit."}
+                    </p>
+                    {customMessage && (
+                        <div className="mt-4 p-3 bg-primary/10 border-l-2 border-primary text-xs text-[var(--foreground)] leading-relaxed">
+                            {customMessage}
+                        </div>
+                    )}
                 </div>
 
                 {status === "success" ? (
@@ -123,8 +138,15 @@ export default function ReservationModal({
                         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4 text-primary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
-                        <h3 className="text-xl font-bold uppercase text-[var(--foreground)] mb-2">You're on the list!</h3>
-                        <p className="text-sm opacity-60 mb-6 max-w-[80%] mx-auto">We'll contact you when there's an update, since everything is still in a "Coming Soon" state for now.</p>
+                        <h3 className="text-xl font-bold uppercase text-[var(--foreground)] mb-2">
+                            {isNewsletter ? "Welcome to the Family!" : "You're on the list!"}
+                        </h3>
+                        <p className="text-sm opacity-60 mb-6 max-w-[80%] mx-auto">
+                            {isNewsletter 
+                                ? "We'll keep you posted with the latest from the collective."
+                                : "We'll contact you when there's an update, since everything is still in a \"Coming Soon\" state for now."
+                            }
+                        </p>
                         <button 
                             onClick={onClose}
                             className="bg-[var(--foreground)] text-[var(--background)] px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors"
@@ -195,7 +217,6 @@ export default function ReservationModal({
                             <option value="Special Guest Summit">Special Guest Summit (Sept/Oct)</option>
                             <option value="Local Circuit Workshop">Local Circuit Workshop</option>
                             <option value="The Lab - Show Interest">The Lab - Show Interest</option>
-                            <option value="Merch Access Request">Merch Access Request</option>
                             <option value="Join Family / Newsletter">Join Family / Newsletter</option>
                         </select>
                     </div>
@@ -207,7 +228,7 @@ export default function ReservationModal({
                     >
                         {status === "submitting" ? (
                             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                        ) : "Confirm Reservation"}
+                        ) : (isNewsletter ? "Join Now" : "Confirm Reservation")}
                     </button>
                     </form>
                 )}

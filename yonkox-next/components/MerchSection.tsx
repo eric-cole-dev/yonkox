@@ -32,7 +32,8 @@ export default function MerchSection() {
       <ReservationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        defaultEvent="Merch Access Request" 
+        defaultEvent="Join Family / Newsletter"
+        customMessage="Join the collective to be notified when limited Member-Only assets are released."
       />
 
       <div className="container mx-auto px-6 mb-20 text-center">
