@@ -24,6 +24,8 @@ export default function Footer() {
           backgroundImage:
             "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
+          maskImage: "linear-gradient(to bottom, transparent, black 20%, black)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black)",
         }}
       ></div>
       <div className="ink-stain opacity-20"></div>

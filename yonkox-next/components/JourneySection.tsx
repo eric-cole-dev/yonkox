@@ -12,6 +12,8 @@ export default function JourneySection() {
           backgroundImage:
             "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
+          maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
         }}
       ></div>
       <div className="container mx-auto px-6 relative z-10">
