@@ -13,7 +13,7 @@ export default function Hero() {
             src="/light-hero-bg.png" 
             alt="Hero Background Light" 
             fill 
-            className="object-cover block dark:hidden opacity-20"
+            className="object-cover block dark:hidden"
             priority
         />
         <Image 
@@ -25,15 +25,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Background Kanji */}
-      <div className="absolute left-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-10 text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
-        四
-      </div>
-      <div className="absolute right-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-10 text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
-        皇
-      </div>
-
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-[var(--background)]/20 to-[var(--background)]/50 pointer-events-none"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/20 to-white/80 dark:from-transparent dark:via-[var(--background)]/20 dark:to-[var(--background)]/50 pointer-events-none"></div>
 
       <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-8 max-w-5xl">
         <motion.div
