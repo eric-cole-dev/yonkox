@@ -5,6 +5,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { EASING } from "@/lib/animation-config";
 import Image from "next/image";
 import { flushSync } from "react-dom";
+import { AnimatedThemeToggle } from "@/components/ui/animated-theme-toggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -116,19 +117,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-6">
-          <div 
-            className="hidden md:flex items-center gap-3 px-4 py-2 border border-[var(--neutral-500)]/10 rounded-full cursor-pointer hover:bg-[var(--surface)] transition-colors"
-            onClick={toggleTheme}
-          >
-            <span className={`material-symbols-outlined text-[18px] transition-colors ${!isDarkMode ? 'text-primary' : 'text-[var(--neutral-500)]'}`}>light_mode</span>
-            <div className="w-8 h-4 bg-primary/20 rounded-full relative">
-              <motion.div 
-                className="absolute top-0.5 w-3 h-3 bg-primary rounded-full"
-                animate={{ left: isDarkMode ? "1.25rem" : "0.125rem" }}
-              />
-            </div>
-            <span className={`material-symbols-outlined text-[18px] transition-colors ${isDarkMode ? 'text-primary' : 'text-[var(--neutral-500)]'}`}>dark_mode</span>
-          </div>
+          <AnimatedThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
 
           <a href="#footer" className="bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
             Join the Collective
