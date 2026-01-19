@@ -52,7 +52,7 @@ export default function Hero() {
               Defy
             </motion.span>
           </div>
-          <div className="relative inline-block">
+          <div className="relative inline-block px-2">
             <div className="italic font-light text-[var(--foreground)] relative z-10 flex">
               {"Gravity".split("").map((letter, i) => (
                 <motion.span
@@ -62,8 +62,9 @@ export default function Hero() {
                   transition={{
                     duration: 0.4,
                     ease: EASING.smooth,
-                    delay: STAGGER.loose + (i * 0.08) // Staggered start
+                    delay: STAGGER.loose + (i * 0.08)
                   }}
+                  className="inline-block pr-[0.15em] -mr-[0.1em]" // Fix for italic clipping
                 >
                   {letter}
                 </motion.span>
