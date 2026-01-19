@@ -69,9 +69,9 @@
   --foreground: #F4F1E8;
   --surface: #1a1a1a;
   
-  --accent-primary: #D90036; /* Muted but visible red for dark mode */
-  --accent-hover: #f5003d;
-  --accent-light: #ff4d7a;
+  --accent-primary: #BF002F; /* Deeper, richer red for dark mode */
+  --accent-hover: #d90036;
+  --accent-light: #ff3366;
   
   --neutral-100: #1a1a1a;
   --neutral-200: #333333;
@@ -80,11 +80,11 @@
   
   --color-rice-paper: #0F0F0F; /* Override for specific brand color usage in dark mode if needed, or just rely on semantic tokens */
   --color-ink-black: #F4F1E8;
-  --color-primary: #D90036;
+  --color-primary: #BF002F;
 }
 
 .dark .text-primary {
-    text-shadow: 0 0 10px rgba(217, 0, 54, 0.2);
+    text-shadow: 0 0 12px rgba(191, 0, 47, 0.15);
 }
 
 body {
