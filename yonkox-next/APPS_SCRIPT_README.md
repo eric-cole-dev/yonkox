@@ -72,19 +72,22 @@ The provided React code uses `mode: "no-cors"` which allows the request to reach
 
 This is why we set `setStatus("success")` optimistically in the code or use a delay. For a production app, you might want to set up a Next.js API route as a proxy, but this "no-cors" method is the simplest way to get started without backend infrastructure.
 
-## Handling Multiple Event Types (e.g., The Lab Interest)
+## Handling Multiple Event Types
 
-The script above collects all submissions into a single sheet. The `Event` column will differentiate between:
+The script collects all submissions into a single sheet. The `Event` column will differentiate between:
 - "Hailey & Kollin Summit"
 - "Special Guest Summit"
 - "Local Circuit Workshop"
 - "The Lab - Show Interest"
+- "Join Family / Newsletter"
 
 **To Separate Data:**
-You don't need to change the script! You can use Google Sheets features:
-1.  **Create a New Tab** in your Google Sheet (e.g., name it "Lab Interest").
-2.  **Use a Formula** in cell A1 of the new tab:
-    `=QUERY(Sheet1!A:F, "SELECT * WHERE F = 'The Lab - Show Interest'", 1)`
-    *(Replace 'Sheet1' with the actual name of your main tab)*
+You can use Google Sheets formulas to automatically sort data into different tabs:
 
-This will automatically copy all "Lab Interest" submissions to the new tab as they come in.
+1.  **Lab Interest:**
+    `=QUERY(Sheet1!A:F, "SELECT * WHERE F = 'The Lab - Show Interest'", 1)`
+    
+2.  **Newsletter Signups:**
+    `=QUERY(Sheet1!A:F, "SELECT * WHERE F = 'Join Family / Newsletter'", 1)`
+
+*(Replace 'Sheet1' with the actual name of your main tab)*

@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import ReservationModal from "./ReservationModal";
 
 export default function Footer() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const checkTheme = () => {
@@ -18,6 +20,12 @@ export default function Footer() {
 
   return (
     <footer id="footer" className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
+      <ReservationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        defaultEvent="Join Family / Newsletter"
+      />
+      
       <div
         className="absolute inset-0 z-0 opacity-10"
         style={{
@@ -76,16 +84,14 @@ export default function Footer() {
             <p className="text-[var(--foreground)] opacity-40 text-[10px] mb-8 uppercase tracking-widest">
               Receive technical updates and event alerts.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                className="bg-[var(--background)] border border-[var(--neutral-900)]/10 text-[var(--foreground)] px-6 py-4 font-body text-sm placeholder-[var(--foreground)]/20 focus:border-primary focus:ring-0 w-full"
-                placeholder="EMAIL@ADDRESS.COM"
-                type="email"
-              />
-              <button className="bg-primary text-white font-display font-bold text-xs uppercase px-10 py-4 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors tracking-widest whitespace-nowrap shadow-md">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-primary text-white font-display font-bold text-xs uppercase px-10 py-4 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors tracking-widest whitespace-nowrap shadow-md w-full sm:w-auto"
+              >
                 Join Us
               </button>
-            </form>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-[var(--neutral-900)]/10">
@@ -159,7 +165,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-20 pt-10 border-t border-[var(--neutral-900)]/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-mono uppercase text-[var(--foreground)] opacity-40 tracking-[0.3em]">
-          <div>© 2024 YonkoX Collective. All Rights Reserved.</div>
+          <div>© 2026 YonkoX Collective. All Rights Reserved.</div>
           <div>Operational // Kuala Lumpur, Malaysia</div>
         </div>
       </div>

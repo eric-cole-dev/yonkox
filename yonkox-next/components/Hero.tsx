@@ -95,10 +95,10 @@ export default function Hero() {
           className="mt-8 flex flex-col items-center gap-4"
         >
           <p className="font-display text-xl md:text-2xl font-bold tracking-[0.1em] text-[var(--foreground)] uppercase">
-            Global Cheerleading Culture.
+            Malaysia's Premier Stunt Collective.
           </p>
           <p className="font-body text-sm tracking-[0.3em] text-primary uppercase font-semibold opacity-90">
-            Home of International Stunt Clinics • Malaysia
+            Specialized Technical Workshops & International Athlete Summits
           </p>
         </motion.div>
 
