@@ -40,7 +40,7 @@ export default function JourneySection() {
               <div className="w-4 h-4 rounded-full bg-primary border-4 border-[var(--background)] z-20 shadow-md"></div>
               <div className="md:w-1/2 md:pl-20">
                 <span className="font-mono text-primary text-sm font-bold uppercase tracking-widest">
-                  Established 2021
+                  Established 2026
                 </span>
               </div>
             </motion.div>

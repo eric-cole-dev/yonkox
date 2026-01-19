@@ -52,15 +52,26 @@ export default function Hero() {
               Defy
             </motion.span>
           </div>
-          <div className="overflow-hidden relative">
+          <div className="relative inline-block">
             <motion.span
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: DURATION.heroReveal, ease: EASING.smooth, delay: STAGGER.loose }}
-              className="block brush-underline italic font-light text-[var(--foreground)]"
+              className="block italic font-light text-[var(--foreground)] relative z-10"
             >
               Gravity
             </motion.span>
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: DURATION.heroReveal + STAGGER.loose + 0.2, duration: 0.6, ease: EASING.smooth }}
+              className="absolute left-[-5%] bottom-[5px] w-[110%] h-[18px] bg-primary -z-0 origin-left"
+              style={{
+                transform: "rotate(-1.2deg) skewX(-10deg)",
+                clipPath: "polygon(2% 10%, 98% 0%, 100% 85%, 5% 100%, 0% 50%)",
+                opacity: 0.9
+              }}
+            />
           </div>
         </h1>
 

@@ -85,25 +85,6 @@ body {
     opacity: 0.08;
 }
 
-.brush-underline {
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-}
-.brush-underline::after {
-    content: "";
-    position: absolute;
-    left: -5%;
-    bottom: 5px;
-    width: 110%;
-    height: 18px;
-    background-color: var(--color-primary);
-    z-index: -1;
-    transform: rotate(-1.2deg) skewx(-10deg);
-    clip-path: polygon(2% 10%, 98% 0%, 100% 85%, 5% 100%, 0% 50%);
-    opacity: 0.9;
-}
-
 .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
