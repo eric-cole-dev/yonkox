@@ -21,6 +21,32 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* View Transitions for Cinematic Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: 100%;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: diagonal-wipe 1s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+@keyframes diagonal-wipe {
+  from {
+    clip-path: polygon(-50% 0, -50% 0, -100% 100%, -100% 100%);
+  }
+  to {
+    clip-path: polygon(150% 0, 150% 0, 100% 100%, 100% 100%);
+  }
+}
+
 /* Base Variables - Light Mode Default */
 :root {
   --background: #F4F1E8;
