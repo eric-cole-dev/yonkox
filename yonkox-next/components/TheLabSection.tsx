@@ -10,7 +10,7 @@ export default function TheLabSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="lab" className="relative w-full py-32 overflow-hidden bg-[var(--surface)] border-b border-[var(--neutral-900)]/5">
+    <section id="lab" className="relative w-full py-20 md:py-32 overflow-hidden bg-[var(--surface)] border-b border-[var(--neutral-900)]/5">
       <ReservationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -28,7 +28,7 @@ export default function TheLabSection() {
         }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24">
+      <div className="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -77,7 +77,7 @@ export default function TheLabSection() {
               Bi-Weekly Local Workshops
             </span>
           </div>
-          <h2 className="font-display font-bold text-6xl uppercase text-[var(--foreground)] mb-12 leading-none">
+          <h2 className="font-display font-bold text-4xl md:text-6xl uppercase text-[var(--foreground)] mb-12 leading-none">
             The Lab
           </h2>
           <div className="space-y-10">
