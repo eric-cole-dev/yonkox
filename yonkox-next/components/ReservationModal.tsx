@@ -78,7 +78,49 @@ export default function ReservationModal({
     }
   };
 
-  const isNewsletter = formData.event === "Join Family / Newsletter";
+  // Determine content based on event type
+  const getModalContent = () => {
+    const event = formData.event;
+    if (event === "Join Family / Newsletter") {
+        return {
+            category: "Stay Connected",
+            title: "Join The Fam",
+            subtitle: "Get exclusive updates on clinics, drops, and local events.",
+            buttonText: "Join Now",
+            successTitle: "Welcome to the Fam!",
+            successMsg: "We'll keep you posted with the latest from the collective."
+        };
+    } else if (event === "The Lab - Show Interest") {
+        return {
+            category: "Local Workshops",
+            title: "The Lab Interest",
+            subtitle: "Show your interest for our upcoming local workshops in KL.",
+            buttonText: "Show Interest",
+            successTitle: "Interest Registered!",
+            successMsg: "We'll notify you when the next Lab session opens for booking."
+        };
+    } else if (event === "Merch Access Request") {
+        return {
+            category: "Limited Access",
+            title: "Request Access",
+            subtitle: "The Vault is currently locked. Request access for future drops.",
+            buttonText: "Request Access",
+            successTitle: "Request Received",
+            successMsg: "You've been added to the priority list for the next drop."
+        };
+    } else {
+        return {
+            category: "Join The Movement",
+            title: "Reserve Spot",
+            subtitle: "Secure your place at the upcoming summit.",
+            buttonText: "Confirm Reservation",
+            successTitle: "You're on the list!",
+            successMsg: "We'll contact you when there's an update, since everything is still in a \"Coming Soon\" state for now."
+        };
+    }
+  };
+
+  const content = getModalContent();
 
   return (
     <AnimatePresence>
@@ -114,19 +156,14 @@ export default function ReservationModal({
               <div className="p-8">
                 <div className="mb-6">
                     <span className="text-primary text-xs font-bold uppercase tracking-widest block mb-2">
-                        {isNewsletter ? "Stay Connected" : "Join The Movement"}
+                        {content.category}
                     </span>
                     <h2 className="text-3xl font-display font-bold uppercase text-[var(--foreground)] tracking-tighter">
-                        {isNewsletter ? "Join Family" : "Reserve Spot"}
+                        {content.title}
                     </h2>
                     <p className="text-[var(--foreground)] opacity-60 text-sm mt-2">
-                        {isNewsletter ? "Get exclusive updates on clinics, drops, and local events." : "Secure your place at the upcoming summit."}
+                        {content.subtitle}
                     </p>
-                    {customMessage && (
-                        <div className="mt-4 p-3 bg-primary/10 border-l-2 border-primary text-xs text-[var(--foreground)] leading-relaxed">
-                            {customMessage}
-                        </div>
-                    )}
                 </div>
 
                 {status === "success" ? (
@@ -139,13 +176,10 @@ export default function ReservationModal({
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </div>
                         <h3 className="text-xl font-bold uppercase text-[var(--foreground)] mb-2">
-                            {isNewsletter ? "Welcome to the Family!" : "You're on the list!"}
+                            {content.successTitle}
                         </h3>
                         <p className="text-sm opacity-60 mb-6 max-w-[80%] mx-auto">
-                            {isNewsletter 
-                                ? "We'll keep you posted with the latest from the collective."
-                                : "We'll contact you when there's an update, since everything is still in a \"Coming Soon\" state for now."
-                            }
+                            {content.successMsg}
                         </p>
                         <button 
                             onClick={onClose}
@@ -217,6 +251,7 @@ export default function ReservationModal({
                             <option value="Special Guest Summit">Special Guest Summit (Sept/Oct)</option>
                             <option value="Local Circuit Workshop">Local Circuit Workshop</option>
                             <option value="The Lab - Show Interest">The Lab - Show Interest</option>
+                            <option value="Merch Access Request">Merch Access Request</option>
                             <option value="Join Family / Newsletter">Join Family / Newsletter</option>
                         </select>
                     </div>
@@ -228,7 +263,7 @@ export default function ReservationModal({
                     >
                         {status === "submitting" ? (
                             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                        ) : (isNewsletter ? "Join Now" : "Confirm Reservation")}
+                        ) : content.buttonText}
                     </button>
                     </form>
                 )}
