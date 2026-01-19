@@ -2,10 +2,29 @@
 
 import { motion } from "framer-motion";
 import { EASING, DURATION, STAGGER } from "@/lib/animation-config";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 border-b border-[var(--neutral-900)]/5 bg-white dark:bg-[var(--background)]">
+      {/* Background Images */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image 
+            src="/light-hero-bg.png" 
+            alt="Hero Background Light" 
+            fill 
+            className="object-cover block dark:hidden opacity-90"
+            priority
+        />
+        <Image 
+            src="/dark-hero-bg.png" 
+            alt="Hero Background Dark" 
+            fill 
+            className="object-cover hidden dark:block opacity-90"
+            priority
+        />
+      </div>
+
       {/* Background Kanji */}
       <div className="absolute left-[-2vw] top-1/2 -translate-y-1/2 text-[var(--foreground)] opacity-10 text-[35vw] font-black select-none pointer-events-none z-0 blur-[2px]">
         四
