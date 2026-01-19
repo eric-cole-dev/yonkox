@@ -101,19 +101,19 @@ export default function Footer() {
             </h4>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#events"
             >
               Summit Series
             </a>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#lab"
             >
               The Lab KL
             </a>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#journey"
             >
               Our Journey
             </a>
@@ -124,7 +124,7 @@ export default function Footer() {
             </h4>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#merch"
             >
               Merch Vault
             </a>
@@ -141,7 +141,7 @@ export default function Footer() {
             </h4>
             <a
               className="text-xs text-primary font-medium hover:text-[var(--foreground)] transition-colors"
-              href="#"
+              href="#footer"
             >
               Inquiries
             </a>
