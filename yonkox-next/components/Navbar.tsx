@@ -50,7 +50,7 @@ export default function Navbar() {
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: EASING.smooth }}
+      transition={{ duration: 0.8, ease: EASING.smooth, delay: 1.5 }}
     >
       <div className="max-w-[1440px] mx-auto px-6 flex items-center justify-between">
         <a href="/" className="flex items-center gap-4 group cursor-pointer">

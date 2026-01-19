@@ -91,7 +91,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: DURATION.slow }}
+          transition={{ delay: 1.6, duration: DURATION.slow }}
           className="mt-8 flex flex-col items-center gap-4"
         >
           <p className="font-display text-xl md:text-2xl font-bold tracking-[0.1em] text-[var(--foreground)] uppercase">
@@ -105,7 +105,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: DURATION.normal }}
+          transition={{ delay: 1.8, duration: DURATION.normal }}
           className="mt-16"
         >
           <a href="#lab" className="inline-block bg-[var(--foreground)] text-[var(--background)] font-display font-bold text-sm uppercase px-14 py-5 hover:bg-primary hover:text-white transition-all tracking-widest shadow-elegant hover:shadow-lg transform hover:-translate-y-1 duration-300">
