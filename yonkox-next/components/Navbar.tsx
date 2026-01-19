@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -69,10 +70,10 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: EASING.smooth, delay: 1.5 }}
       >
-        <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-3 items-center">
+        <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-2 md:grid-cols-3 items-center">
           <div className="flex justify-start">
-            <a href="/" className="flex items-center gap-4 group cursor-pointer">
-              <div className="size-20 flex items-center justify-center relative overflow-hidden">
+            <a href="/" className="flex items-center gap-4 group cursor-pointer z-[60] relative">
+              <div className="size-16 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <Image 
                         src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
@@ -83,7 +84,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <h2 className="font-accent font-bold text-xl tracking-tight uppercase text-[var(--foreground)] leading-none">
+                <h2 className="font-display font-bold text-xl tracking-tight uppercase text-[var(--foreground)] leading-none">
                   Yonko X
                 </h2>
                 <span className="text-[9px] tracking-[0.2em] uppercase text-primary font-bold mt-1.5">
@@ -120,14 +121,57 @@ export default function Navbar() {
             </a>
           </nav>
 
-          <div className="flex items-center justify-end gap-6">
+          <div className="flex items-center justify-end gap-4 md:gap-6 z-[60] relative">
             <AnimatedThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
 
-            <a href="#footer" className="bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
+            <a href="#footer" className="hidden md:block bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
               Join the Collective
             </a>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-[var(--foreground)] focus:outline-none p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span className="material-symbols-outlined text-3xl">
+                {isMenuOpen ? "close" : "menu"}
+              </span>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: EASING.smooth }}
+              className="fixed inset-0 bg-[var(--background)]/95 backdrop-blur-xl z-50 flex flex-col items-center justify-center gap-8 md:hidden"
+            >
+              <nav className="flex flex-col items-center gap-8">
+                {["events", "lab", "journey", "merch"].map((item) => (
+                  <a
+                    key={item}
+                    className="font-display font-bold text-3xl tracking-widest uppercase text-[var(--foreground)] hover:text-primary transition-colors"
+                    href={`#${item}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item === "merch" ? "Vault" : item === "journey" ? "Our Journey" : item === "lab" ? "The Lab" : "Events"}
+                  </a>
+                ))}
+                <a 
+                  href="#footer" 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="bg-primary text-white font-display font-bold text-sm uppercase px-10 py-4 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary mt-4"
+                >
+                  Join the Collective
+                </a>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
     </>
   );
