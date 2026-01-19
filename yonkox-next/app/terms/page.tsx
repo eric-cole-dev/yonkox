@@ -57,6 +57,13 @@ export default function TermsPage() {
               The content, organization, graphics, design, compilation, magnetic translation, digital conversion and other matters related to the Site are protected under applicable copyrights, trademarks and other proprietary rights.
             </p>
           </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">6. Governing Law</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              These Terms shall be governed and construed in accordance with the laws of <strong>Malaysia</strong>, without regard to its conflict of law provisions. Any dispute arising from these terms shall be subject to the exclusive jurisdiction of the courts of Malaysia.
+            </p>
+          </section>
         </div>
       </div>
       <Footer />

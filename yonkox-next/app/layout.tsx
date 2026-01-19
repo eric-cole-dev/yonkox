@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Manrope, Oswald } from "next/font/google";
+import { Space_Grotesk, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import CookieConsent from "@/components/CookieConsent";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -10,11 +11,6 @@ const spaceGrotesk = Space_Grotesk({
 
 const manrope = Manrope({
   variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const oswald = Oswald({
-  variable: "--font-oswald",
   subsets: ["latin"],
 });
 
@@ -34,10 +30,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${manrope.variable} ${oswald.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
+        className={`${spaceGrotesk.variable} ${manrope.variable} antialiased bg-[var(--background)] text-[var(--foreground)]`}
       >
         <SmoothScroll>
           {children}
+          <CookieConsent />
         </SmoothScroll>
       </body>
     </html>

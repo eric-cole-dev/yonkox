@@ -14,48 +14,66 @@ export default function PrivacyPage() {
           </p>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">1. Introduction</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">1. Introduction & PDPA Compliance</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              YonkoX ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
+              YonkoX ("we," "our," or "us") respects your privacy and is committed to protecting your personal data in accordance with the <strong>Personal Data Protection Act 2010 (PDPA)</strong> of Malaysia. This privacy policy informs you how we collect, process, and look after your personal data when you visit our website.
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="font-display font-bold text-2xl uppercase mb-4">2. Data We Collect</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
+              We collect the following personal data only when voluntarily provided by you via our forms (e.g., "Join Us" newsletter or waitlist):
             </p>
             <ul className="list-disc pl-6 opacity-70 space-y-2">
-              <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
-              <li><strong>Contact Data:</strong> includes email address and telephone numbers (for waitlists and newsletters).</li>
-              <li><strong>Technical Data:</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, and other technology on the devices you use to access this website.</li>
+              <li><strong>Contact Data:</strong> Email address.</li>
+              <li><strong>Usage Data:</strong> Theme preference (Light/Dark mode) stored locally on your device.</li>
+            </ul>
+            <p className="opacity-70 leading-relaxed mt-4">
+              We do not automatically collect sensitive personal data or track your browsing history via third-party analytics cookies at this time.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">3. Purpose of Processing (Notice & Choice)</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              In strict adherence to the PDPA, we process your data for the following specific purposes:
+            </p>
+            <ul className="list-disc pl-6 opacity-70 space-y-2">
+              <li>To register you for our newsletter or event waitlists (based on your request).</li>
+              <li>To notify you about upcoming workshops, clinics, and merchandise drops.</li>
+              <li>To maintain your preferred website appearance (Light/Dark mode).</li>
+            </ul>
+            <p className="opacity-70 leading-relaxed mt-4">
+              By submitting your email address, you explicitly consent to the processing of your data for these purposes. You may withdraw your consent at any time by contacting us.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">4. Cookies & Local Storage</h2>
+            <p className="opacity-70 leading-relaxed mb-4">
+              <strong>We do not use third-party tracking or advertising cookies.</strong>
+            </p>
+            <p className="opacity-70 leading-relaxed mb-4">
+              We utilize <strong>Local Storage</strong> solely for functionality:
+            </p>
+            <ul className="list-disc pl-6 opacity-70 space-y-2">
+              <li><strong>theme:</strong> Stores your preference for Light or Dark mode.</li>
+              <li><strong>cookie_consent:</strong> Stores your acknowledgement of this policy.</li>
             </ul>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">3. How We Use Your Data</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">5. Data Security & Retention</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
-            </p>
-            <ul className="list-disc pl-6 opacity-70 space-y-2">
-              <li>To register you as a new member or event participant.</li>
-              <li>To manage our relationship with you (including notifying you about changes to our terms or privacy policy).</li>
-              <li>To enable you to partake in a prize draw, competition or complete a survey.</li>
-              <li>To deliver relevant website content and advertisements to you and measure or understand the effectiveness of the advertising we serve to you.</li>
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">4. Cookies</h2>
-            <p className="opacity-70 leading-relaxed mb-4">
-              We use cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site. You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies.
+              We implement appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way. We retain your data only as long as necessary to fulfill the purposes we collected it for.
             </p>
           </section>
 
           <section className="mb-12">
-            <h2 className="font-display font-bold text-2xl uppercase mb-4">5. Contact Us</h2>
+            <h2 className="font-display font-bold text-2xl uppercase mb-4">6. Your Rights</h2>
             <p className="opacity-70 leading-relaxed mb-4">
-              If you have any questions about this privacy policy or our privacy practices, please contact us via the form in the footer.
+              Under the PDPA, you have the right to access, correct, or withdraw consent for your personal data. To exercise these rights, please contact us via the inquiries form.
             </p>
           </section>
         </div>

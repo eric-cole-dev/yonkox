@@ -72,7 +72,7 @@ export default function Navbar() {
         <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-3 items-center">
           <div className="flex justify-start">
             <a href="/" className="flex items-center gap-4 group cursor-pointer">
-              <div className="size-16 flex items-center justify-center relative overflow-hidden">
+              <div className="size-20 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <Image 
                         src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
@@ -83,10 +83,10 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <h2 className="font-accent font-bold text-2xl tracking-tight uppercase text-[var(--foreground)] leading-none">
+                <h2 className="font-accent font-bold text-xl tracking-tight uppercase text-[var(--foreground)] leading-none">
                   Yonko X
                 </h2>
-                <span className="text-[10px] tracking-[0.2em] uppercase text-primary font-bold mt-1">
+                <span className="text-[9px] tracking-[0.2em] uppercase text-primary font-bold mt-1.5">
                   The Collective
                 </span>
               </div>
