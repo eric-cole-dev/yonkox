@@ -30,9 +30,9 @@ export default function CookieConsent() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-6 left-6 right-6 z-[9999] md:max-w-md md:left-auto"
+          className="fixed bottom-6 left-4 right-4 z-[9999] md:max-w-md md:left-auto md:right-6"
         >
-          <div className="bg-[var(--surface)] border border-[var(--neutral-900)]/10 p-6 shadow-2xl backdrop-blur-md bg-opacity-95 flex flex-col gap-4 relative overflow-hidden">
+          <div className="bg-[var(--surface)] border border-[var(--neutral-900)]/10 p-4 md:p-6 shadow-2xl backdrop-blur-md bg-opacity-95 flex flex-col gap-4 relative overflow-hidden">
              {/* Checkered BG overlay */}
              <div
                 className="absolute inset-0 z-0 opacity-5 pointer-events-none"
@@ -43,14 +43,14 @@ export default function CookieConsent() {
                 }}
               ></div>
             
-            <div className="relative z-10">
+            <div className="relative z-10 text-center md:text-left">
                 <h4 className="font-display font-bold text-lg text-[var(--foreground)] mb-2 uppercase tracking-wide">
                 Cookie Notice
                 </h4>
                 <p className="font-body text-sm text-[var(--foreground)] opacity-70 mb-4 leading-relaxed">
                 We use strictly necessary storage to save your theme preference (Light/Dark mode) and ensure the site functions correctly. We do not use tracking cookies.
                 </p>
-                <div className="flex flex-wrap gap-3 items-center">
+                <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
                 <button
                     onClick={handleAccept}
                     className="bg-primary text-white font-display font-bold text-[10px] uppercase px-6 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest shadow-md"

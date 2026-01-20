@@ -70,76 +70,75 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: EASING.smooth, delay: 1.5 }}
       >
-        <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-2 md:grid-cols-3 items-center">
-          <div className="flex justify-start">
-            <a href="/" className="flex items-center gap-4 group cursor-pointer z-[60] relative">
-              <div className="size-16 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <Image 
-                        src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
-                        alt="Yonko X Logo" 
-                        fill
-                        className="object-contain dark:brightness-150 dark:contrast-125"
-                    />
+              <div className="max-w-[1440px] mx-auto px-4 md:px-6 flex items-center justify-between">
+                <div className="flex justify-start shrink-0">
+                  <a href="/" className="flex items-center gap-2 md:gap-4 group cursor-pointer z-[60] relative">
+                    <div className="size-10 md:size-16 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
+                          <Image 
+                              src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
+                              alt="Yonko X Logo" 
+                              fill
+                              className="object-contain dark:brightness-150 dark:contrast-125"
+                          />
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <h2 className="font-display font-bold text-sm md:text-xl tracking-tight uppercase text-[var(--foreground)] leading-none whitespace-nowrap">
+                        Yonko X
+                      </h2>
+                      <span className="text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-primary font-bold mt-1 whitespace-nowrap">
+                        The Collective
+                      </span>
+                    </div>
+                  </a>
+                </div>
+        
+                <nav className="hidden md:flex items-center justify-center gap-10">
+                  <a
+                    className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
+                    href="#events"
+                  >
+                    Events
+                  </a>
+                  <a
+                    className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
+                    href="#lab"
+                  >
+                    The Lab
+                  </a>
+                  <a
+                    className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
+                    href="#journey"
+                  >
+                    Our Journey
+                  </a>
+                  <a
+                    className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
+                    href="#merch"
+                  >
+                    Vault
+                  </a>
+                </nav>
+        
+                <div className="flex items-center justify-end gap-3 md:gap-6 z-[60] relative shrink-0">
+                  <AnimatedThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
+        
+                  <a href="#footer" className="hidden md:block bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
+                    Join the Collective
+                  </a>
+        
+                  {/* Mobile Menu Button */}
+                  <button 
+                    className="md:hidden text-[var(--foreground)] focus:outline-none p-1"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  >
+                    <span className="material-symbols-outlined text-2xl">
+                      {isMenuOpen ? "close" : "menu"}
+                    </span>
+                  </button>
                 </div>
               </div>
-              <div className="flex flex-col">
-                <h2 className="font-display font-bold text-xl tracking-tight uppercase text-[var(--foreground)] leading-none">
-                  Yonko X
-                </h2>
-                <span className="text-[9px] tracking-[0.2em] uppercase text-primary font-bold mt-1.5">
-                  The Collective
-                </span>
-              </div>
-            </a>
-          </div>
-
-          <nav className="hidden md:flex items-center justify-center gap-10">
-            <a
-              className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
-              href="#events"
-            >
-              Events
-            </a>
-            <a
-              className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
-              href="#lab"
-            >
-              The Lab
-            </a>
-            <a
-              className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
-              href="#journey"
-            >
-              Our Journey
-            </a>
-            <a
-              className="font-display font-medium text-xs tracking-widest uppercase text-[var(--neutral-500)] hover:text-primary transition-colors"
-              href="#merch"
-            >
-              Vault
-            </a>
-          </nav>
-
-          <div className="flex items-center justify-end gap-4 md:gap-6 z-[60] relative">
-            <AnimatedThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
-
-            <a href="#footer" className="hidden md:block bg-primary text-white font-display font-bold text-xs uppercase px-8 py-3 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all tracking-widest border border-primary">
-              Join the Collective
-            </a>
-
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-[var(--foreground)] focus:outline-none p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="material-symbols-outlined text-3xl">
-                {isMenuOpen ? "close" : "menu"}
-              </span>
-            </button>
-          </div>
-        </div>
-
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMenuOpen && (
