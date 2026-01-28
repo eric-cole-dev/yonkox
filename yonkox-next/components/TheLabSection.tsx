@@ -3,19 +3,18 @@
 import { motion } from "framer-motion";
 import { EASING, DURATION } from "@/lib/animation-config";
 import Image from "next/image";
-import { useState } from "react";
-import ReservationModal from "./ReservationModal";
+import Link from "next/link";
 
 export default function TheLabSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
-    <section id="lab" className="relative w-full py-20 md:py-32 overflow-hidden bg-[var(--surface)] border-b border-[var(--neutral-900)]/5">
-      <ReservationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        defaultEvent="The Lab - Show Interest"
-      />
+    <section
+      id="lab"
+      className="relative z-10 w-full py-20 md:py-32 overflow-hidden bg-[var(--surface)]/50 border-b border-[var(--neutral-900)]/5"
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)"
+      }}
+    >
 
       <div
         className="absolute inset-0 z-0 opacity-10"
@@ -28,15 +27,15 @@ export default function TheLabSection() {
         }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24">
+      <div className="relative z-10 container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-24">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: DURATION.sectionReveal, ease: EASING.smooth }}
-          className="relative group self-center"
+          className="relative group self-center order-2 lg:order-1"
         >
-          <div className="relative aspect-square border border-[var(--neutral-900)]/10 overflow-hidden shadow-elegant bg-[var(--background)] p-2">
+          <div className="relative aspect-[4/3] lg:aspect-square border border-[var(--neutral-900)]/10 overflow-hidden shadow-elegant bg-[var(--background)] p-2">
             <div className="w-full h-full relative overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAJcW5_Y0h5N5zDQZvkFLW3E4CTgD309NbWqID_aFD_qHIv_N9FOnojwc3Sw2qaFpz9BSN9cj4ARNyhx_CA6vqWBgI0yjfM-ZkI5zRzaEx0dvvnNESftMm1GQrJhvohiRKS4q74EwzvTue3gz7HxjsLvmUduv0aaYAjSvH9kmmIqd94N09mu6jJ2jw34nlafJ3duW6IXPwP0vXoJCywoXnfGibod9nM5dhO1e5mMjmZ0MXfAAeY7Tr1UGQlnkyk6phTmql4b2vyjQ"
@@ -67,7 +66,7 @@ export default function TheLabSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: DURATION.sectionReveal, ease: EASING.smooth }}
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center order-1 lg:order-2"
         >
           <div className="flex items-center gap-3 mb-8">
             <span className="material-symbols-outlined text-primary">
@@ -77,11 +76,11 @@ export default function TheLabSection() {
               Bi-Weekly Local Workshops
             </span>
           </div>
-          <h2 className="font-display font-bold text-4xl md:text-6xl uppercase text-[var(--foreground)] mb-12 leading-none">
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-6xl uppercase text-[var(--foreground)] mb-8 md:mb-12 leading-none">
             The Lab
           </h2>
-          <div className="space-y-10">
-            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm opacity-60">
+          <div className="space-y-6 md:space-y-10">
+            <div className="border-l-2 border-primary pl-6 md:pl-8 group hover:bg-[var(--background)]/40 transition-colors p-4 md:p-6 cursor-pointer rounded-r-sm opacity-60">
               <span className="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">
                 DECONSTRUCTION_01
               </span>
@@ -93,7 +92,7 @@ export default function TheLabSection() {
                 terminal height transition in our local Kuala Lumpur sessions.
               </p>
             </div>
-            <div className="border-l-2 border-primary pl-8 group hover:bg-[var(--background)]/40 transition-colors p-6 cursor-pointer rounded-r-sm opacity-60">
+            <div className="border-l-2 border-primary pl-6 md:pl-8 group hover:bg-[var(--background)]/40 transition-colors p-4 md:p-6 cursor-pointer rounded-r-sm opacity-60">
               <span className="text-primary font-mono text-xs mb-3 block tracking-widest opacity-80">
                 DECONSTRUCTION_02
               </span>
@@ -106,15 +105,15 @@ export default function TheLabSection() {
               </p>
             </div>
           </div>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-4 text-[var(--foreground)] font-display text-xs font-bold uppercase tracking-widest mt-16 hover:text-primary transition-colors group text-left"
+          <Link
+            href="/workshops"
+            className="inline-flex items-center gap-4 text-[var(--foreground)] font-display text-xs font-bold uppercase tracking-widest mt-10 md:mt-16 hover:text-primary transition-colors group text-left"
           >
-            Show Interest <span className="opacity-50 text-[10px] ml-1">(Coming Soon)</span>
+            Explore Workshops <span className="opacity-50 text-[10px] ml-1">(Coming Soon)</span>
             <span className="material-symbols-outlined text-sm transform group-hover:translate-x-2 transition-transform text-primary">
               arrow_forward_ios
             </span>
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

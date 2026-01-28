@@ -28,7 +28,14 @@ export default function MerchSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="merch" className="py-32 bg-[var(--background)] border-t border-[var(--neutral-900)]/5">
+    <section
+      id="merch"
+      className="relative z-10 py-32 bg-[var(--background)]/50 border-t border-[var(--neutral-900)]/5"
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)"
+      }}
+    >
       <ReservationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -49,7 +56,7 @@ export default function MerchSection() {
         </p>
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 lg:gap-12">
         {PRODUCTS.map((product, index) => (
           <motion.div
             key={product.name}
@@ -61,7 +68,7 @@ export default function MerchSection() {
               delay: index * STAGGER.relaxed,
               ease: EASING.smooth,
             }}
-            className="relative group"
+            className={`relative group ${index === PRODUCTS.length - 1 ? 'col-span-2 lg:col-span-1 max-w-[calc(50%-0.375rem)] lg:max-w-none mx-auto lg:mx-0' : ''}`}
           >
             <div className="aspect-[4/5] overflow-hidden p-12 frosted-vault relative shadow-card border border-[var(--neutral-900)]/5 transition-transform hover:-translate-y-2 duration-300">
               <div className="relative w-full h-full">

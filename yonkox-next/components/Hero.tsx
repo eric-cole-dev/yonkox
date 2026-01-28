@@ -3,23 +3,42 @@
 import { motion } from "framer-motion";
 import { EASING, DURATION, STAGGER } from "@/lib/animation-config";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  useEffect(() => {
+    // Small delay to ensure proper opacity application
+    const timer = setTimeout(() => {
+      setBgLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 border-b border-[var(--neutral-900)]/5 bg-white dark:bg-[var(--background)]">
+    <section
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 pb-12 border-b border-[var(--neutral-900)]/5"
+      style={{
+        maskImage: "linear-gradient(to bottom, black 80%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent)"
+      }}
+    >
       {/* Background Images */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Image 
-            src="/light-hero-bg.png" 
-            alt="Hero Background Light" 
-            fill 
+      <div
+        className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-700"
+        style={{ opacity: bgLoaded ? 0.3 : 0 }}
+      >
+        <Image
+            src="/light-hero-bg.png"
+            alt="Hero Background Light"
+            fill
             className="object-cover block dark:hidden"
             priority
         />
-        <Image 
-            src="/dark-hero-bg.png" 
-            alt="Hero Background Dark" 
-            fill 
+        <Image
+            src="/dark-hero-bg.png"
+            alt="Hero Background Dark"
+            fill
             className="object-cover hidden dark:block"
             priority
         />
@@ -27,7 +46,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-white/10 dark:from-transparent dark:to-black/40 pointer-events-none"></div>
 
-      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-8 max-w-5xl">
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-4 md:gap-6 lg:gap-8 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 0.8, y: 0 }}

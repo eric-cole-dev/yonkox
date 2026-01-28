@@ -1,11 +1,17 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { FixedGradientBackground } from "@/components/ui/hero-section-gradient";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      <Navbar />
-      <div className="container mx-auto px-6 py-32 max-w-4xl">
+    <>
+      <FixedGradientBackground
+        distortion={0.7}
+        swirl={0.5}
+        speed={0.3}
+        veilOpacity="bg-white/40 dark:bg-black/25"
+      />
+      <main className="min-h-screen relative z-10 bg-transparent text-[var(--foreground)]">
+        <div className="container mx-auto px-6 pt-32 pb-16 max-w-4xl">
         <h1 className="font-display font-bold text-5xl uppercase mb-12 text-primary">Terms & Conditions</h1>
         
         <div className="prose dark:prose-invert max-w-none font-body">
@@ -75,7 +81,10 @@ export default function TermsPage() {
           </section>
         </div>
       </div>
-      <Footer />
-    </main>
+      <div className="relative z-10">
+        <Footer />
+      </div>
+      </main>
+    </>
   );
 }

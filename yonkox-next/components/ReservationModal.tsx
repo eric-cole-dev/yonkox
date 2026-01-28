@@ -144,7 +144,7 @@ export default function ReservationModal({
             transition={{ duration: DURATION.normal, ease: EASING.smooth }}
             className="fixed inset-0 z-[70] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="bg-[var(--surface)] border border-[var(--neutral-900)]/20 w-full max-w-md pointer-events-auto shadow-2xl overflow-hidden relative">
+            <div className="bg-[var(--surface)] border border-[var(--neutral-900)]/20 w-full max-w-sm sm:max-w-md pointer-events-auto shadow-2xl overflow-hidden relative">
                 {/* Close Button */}
                 <button 
                     onClick={onClose}
@@ -214,7 +214,7 @@ export default function ReservationModal({
                         placeholder="hello@yonkox.com"
                         />
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4">
                         <div className="flex-1">
                             <label className="block text-[10px] uppercase font-bold tracking-widest mb-1 opacity-70">Phone (WhatsApp)</label>
                             <input

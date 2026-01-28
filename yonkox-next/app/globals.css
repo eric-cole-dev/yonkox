@@ -18,6 +18,9 @@
   --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 
   --background-image-ink-wash: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.8) 0%, rgba(244,241,232,0) 60%);
+
+  /* Grain texture URL */
+  --grain-texture-url: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -89,13 +92,14 @@
 }
 
 body {
-  background-color: var(--background);
+  background: #F4F1E8;
   color: var(--foreground);
   font-family: var(--font-body);
-  /* Texture from example.html */
-  background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);
-  background-repeat: repeat;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dark body {
+  background: #0F0F0F;
 }
 
 html, body {
@@ -103,14 +107,6 @@ html, body {
   overflow-x: hidden;
 }
 
-.dark body {
-    /* Darker texture or just blend mode change could be better, but for now keeping same texture or removing it? 
-       The texture is light. In dark mode, we might want to invert it or use a different one. 
-       For now, I'll use a multiply blend mode on the body background for dark mode to darken it.
-    */
-    background-blend-mode: multiply;
-    background-color: #0F0F0F;
-}
 
 /* Utilities */
 .grain-overlay {
@@ -193,4 +189,46 @@ html, body {
     filter: blur(40px);
     pointer-events: none;
     z-index: 0;
+}
+/* Editorial/Brutalist Design System Utilities */
+.grain {
+  position: fixed;
+  inset: 0;
+  background-image: var(--grain-texture-url);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.ink-wash-texture {
+  background-image: radial-gradient(circle at 70% 30%, rgba(128, 1, 30, 0.03) 0%, transparent 60%),
+                    radial-gradient(circle at 20% 70%, rgba(15, 15, 15, 0.02) 0%, transparent 50%);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, #80011E 0%, transparent 100%);
+}
+
+.triptych-container {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+/* Decorative background characters for editorial design */
+.editorial-char {
+  position: absolute;
+  font-size: 20vw;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  user-select: none;
+  pointer-events: none;
+}
+
+.dark .editorial-char {
+  color: rgba(255, 255, 255, 0.02);
 }

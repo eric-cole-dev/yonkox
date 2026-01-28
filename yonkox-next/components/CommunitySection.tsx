@@ -24,7 +24,14 @@ const LEADS = [
 
 export default function CommunitySection() {
   return (
-    <section id="community" className="py-32 bg-[var(--background)] border-b border-[var(--neutral-900)]/5">
+    <section
+      id="community"
+      className="relative z-10 py-32 bg-[var(--background)]/50 border-b border-[var(--neutral-900)]/5"
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)"
+      }}
+    >
       <div className="container mx-auto px-6 text-center mb-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +45,7 @@ export default function CommunitySection() {
         <div className="w-24 h-1 bg-primary mx-auto"></div>
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 lg:gap-12">
         {LEADS.map((lead, index) => (
           <motion.div
             key={lead.name}
@@ -50,7 +57,7 @@ export default function CommunitySection() {
               delay: index * STAGGER.relaxed,
               ease: EASING.smooth,
             }}
-            className="group text-center"
+            className={`group text-center ${index === LEADS.length - 1 ? 'col-span-2 lg:col-span-1 max-w-[calc(50%-0.375rem)] lg:max-w-none mx-auto lg:mx-0' : ''}`}
           >
             <div className="aspect-[3/4] bg-[var(--surface)] overflow-hidden relative mb-6 border border-[var(--neutral-900)]/5 grayscale group-hover:grayscale-0 transition-all duration-500 shadow-card group-hover:shadow-lg">
               <Image

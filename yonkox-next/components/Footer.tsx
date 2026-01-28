@@ -19,7 +19,14 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer id="footer" className="border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-16 md:py-24 relative overflow-hidden bg-[var(--surface)] transition-colors duration-300">
+    <footer
+      id="footer"
+      className="relative z-10 border-t border-[var(--neutral-900)]/5 text-[var(--foreground)] py-16 md:py-24 overflow-hidden bg-[var(--surface)]/50 transition-colors duration-300"
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent, black 20%, black 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 20%, black 100%)"
+      }}
+    >
       <ReservationModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -38,18 +45,18 @@ export default function Footer() {
       ></div>
       <div className="ink-stain opacity-20"></div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 mb-16 md:mb-20">
           <div className="space-y-8">
-            <div className="flex items-center gap-6">
-              <div className="size-24 relative overflow-hidden">
-                <Image 
-                    src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"} 
-                    alt="Yonko X Logo" 
+            <div className="flex items-center gap-4 md:gap-6">
+              <div className="size-16 md:size-24 relative overflow-hidden">
+                <Image
+                    src={isDarkMode ? "/dark-yonkox-nobg.png" : "/lightmode-yonkox-nobg.png"}
+                    alt="Yonko X Logo"
                     fill
                     className="object-contain dark:brightness-150 dark:contrast-125"
                 />
               </div>
-              <h2 className="font-accent font-bold text-4xl uppercase tracking-tighter">
+              <h2 className="font-accent font-bold text-2xl md:text-4xl uppercase tracking-tighter">
                 Yonko X
               </h2>
             </div>
@@ -94,7 +101,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-[var(--neutral-900)]/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-4 md:gap-8 lg:gap-12 pt-12 border-t border-[var(--neutral-900)]/10">
           <div className="flex flex-col gap-4">
             <h4 className="font-display font-bold uppercase text-[10px] tracking-widest text-primary mb-2">
               Clinics

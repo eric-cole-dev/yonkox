@@ -3,12 +3,22 @@
 import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
 
+// Extend Window interface to include lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
     });
+
+    // Make Lenis instance globally accessible
+    window.lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -26,7 +36,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
         const element = document.querySelector(anchor.hash);
         if (element) {
           e.preventDefault();
-          lenis.scrollTo(element, { offset: 0, duration: 1.5 }); // Cinematic scroll duration
+          lenis.scrollTo(element as HTMLElement, { offset: 0, duration: 1.5 }); // Cinematic scroll duration
         }
       }
     };
@@ -35,6 +45,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
 
     return () => {
       lenis.destroy();
+      window.lenis = undefined;
       document.removeEventListener("click", handleAnchorClick);
     };
   }, []);

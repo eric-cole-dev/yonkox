@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daniel Bailey Summit: Light Mode Reveal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80011E",
+                        "rice": "#F4F1E8",
+                        "charcoal": "#1A1A1A",
+                        "ink": "#2D2D2D",
+                        "paper": "#EAE7DD"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">@layer base {
+    body {
+        @apply bg-rice text-charcoal;
+        }
+    }
+.ink-wash-texture {
+    background-color: #F4F1E8;
+    background-image: radial-gradient(circle at 10% 20%, rgba(128, 1, 30, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(128, 1, 30, 0.02) 0%, transparent 40%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBtNV8agPSKW9YkYSJgvlc6BxZ-SAPo1YTt16EgSV7eussZzrdox5-i-iI6WpUYS6yCW2FHgQ8ty3oEIenDRv6XIvNOvfRbfpXcS4pmh0RaWLODMeui4cZpz76rfwOhnlYizuKbCXUZVe2xWlN3HOz8ZK1TIJAwofABVityAX4AHEtn1egnyFwx5qdFUXvoKph3FARkhDO_9Le4e-lWxSXksO2VnKg6-M_6SveMTwKV2WsPzBjkq3wEtXppOAbpln9w8g5mtkGF8CY)
+    }
+.distressed-card {
+    clip-path: polygon(1% 0%, 99% 1%, 100% 3%, 98% 97%, 96% 100%, 4% 99%, 0% 98%, 2% 4%)
+    }
+.grain {
+    position: fixed;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCjDYRFOA-Pq2NJsO5pGL7y_LnA2zm0WSufWE4NvShuwpuJXSR0Q8g5bDNK3APIvt-B4GP142sUwAoJoKd3lWNR8b_aAwv5h4HmlQCtaomACLqrHc4WG83G5p5zDKeBEBAh0ESR1V3ax_xitOFidr7Qv2k2-QJqHUtqdk6WIFAzVHySE_JP_0NmXJUgv9cXXXS4IRIiCDdhFLhHjESdQ81LCi03ASVBNTPJhow-cNG5yeAxKcT7z25KS_OAujdPaZ5jDc8Jgd1oFmU);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 50;
+    mix-blend-mode: multiply
+    }
+.frosted-mystery {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.4);
+    mask-image: radial-gradient(circle, black 40%, transparent 100%)
+    }
+.kanji-bg {
+    font-size: 35vw;
+    line-height: 1;
+    opacity: 0.03;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    font-weight: 900
+    }</style>
+</head>
+<body class="font-body selection:bg-primary selection:text-white antialiased">
+<div class="grain"></div>
+<header class="fixed top-0 left-0 w-full z-50 border-b border-charcoal/5 bg-rice/80 backdrop-blur-md">
+<div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<div class="font-display font-bold text-lg tracking-tighter uppercase text-charcoal">SUMMIT<span class="text-primary">2026</span></div>
+<nav class="hidden md:flex gap-10">
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] text-charcoal/60 hover:text-primary transition-colors" href="#confirmed">Confirmed</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] text-charcoal/60 hover:text-primary transition-colors" href="#mystery">Mystery Guests</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] text-charcoal/60 hover:text-primary transition-colors" href="#register">Registration</a>
+</nav>
+</div>
+<a class="bg-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] px-8 py-3.5 hover:bg-charcoal transition-all shadow-lg shadow-primary/10" href="#register">
+                Join Collective
+            </a>
+</div>
+</header>
+<section class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden ink-wash-texture">
+<div class="kanji-bg left-[-5%] top-[10%] select-none">頂</div>
+<div class="container mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+<div class="mb-8 flex items-center gap-4">
+<span class="h-px w-16 bg-primary/30"></span>
+<span class="text-primary text-[11px] font-bold uppercase tracking-[0.6em]">The Reveal</span>
+<span class="h-px w-16 bg-primary/30"></span>
+</div>
+<h1 class="font-display font-bold text-[9vw] leading-[0.85] uppercase tracking-tighter mb-10 text-charcoal">
+                Special Guest<br/><span class="text-transparent bg-clip-text bg-gradient-to-b from-charcoal to-charcoal/40">Summit</span>
+</h1>
+<div class="max-w-2xl">
+<p class="text-lg md:text-xl font-light tracking-[0.15em] text-ink/70 mb-14 uppercase">
+                    International Elite Coaching • Sept/Oct 2026 • Kuala Lumpur
+                </p>
+<div class="flex flex-col items-center">
+<div class="h-32 w-px bg-gradient-to-b from-primary/60 to-transparent"></div>
+</div>
+</div>
+</div>
+<div class="absolute right-[-5%] bottom-[10%] text-[25vw] font-black text-charcoal/[0.02] select-none pointer-events-none uppercase">Elite</div>
+</section>
+<section class="py-40 relative bg-paper/50" id="confirmed">
+<div class="container mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative group">
+<div class="absolute -inset-10 bg-primary/5 blur-3xl rounded-full"></div>
+<div class="distressed-card bg-white aspect-[4/5] relative overflow-hidden border border-charcoal/5 shadow-2xl">
+<img alt="Daniel Bailey" class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5tpibSE9Rr60DSOdqM4gItAo3CYzICH4lTUYj8pBDHq87XyLCR0hLjwdw-Cq9fSqPgY2aq0yB_YsQhw1PsyRxoOiDU_jy5WzfkAUa1eleLD-9kVmUddxyXizJBJgyRHq8assbqOOdxr3rfagL_S0H7yXR1pfSd4sWIK63bQvLfo0j2sQZFtjaUuOkbrIQLdZ3dIzeXlLV05QK3aj68BwkhVKAf_Qy8jax_U-wW2O9wiEcNXXDJ6FxyICnQbhIEus_X9R4dtc-pY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent opacity-40"></div>
+<div class="absolute bottom-10 left-0 w-full p-8 text-center">
+<span class="inline-block bg-primary text-white px-4 py-1.5 text-[10px] font-bold tracking-widest mb-4 uppercase">Confirmed Instructor</span>
+<h3 class="font-display font-bold text-5xl uppercase tracking-tighter text-white drop-shadow-lg">Daniel Bailey</h3>
+</div>
+</div>
+</div>
+<div class="space-y-10 text-center lg:text-left">
+<div class="flex items-center justify-center lg:justify-start gap-4">
+<span class="text-4xl filter drop-shadow-sm">🇦🇺</span>
+<div class="h-px w-16 bg-primary/20"></div>
+<span class="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">Australia / International Elite</span>
+</div>
+<h2 class="font-display font-bold text-6xl uppercase tracking-tighter leading-tight text-charcoal">The Weber State<br/><span class="text-primary/90">Standard.</span></h2>
+<p class="text-xl text-ink/70 font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        Formerly of <span class="text-primary font-bold border-b border-primary/20 pb-1">Weber State University</span>, the world-renowned breeding ground for stunting excellence. Daniel brings a standard of precision and explosive technicality to Kuala Lumpur.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-10 border-t border-charcoal/10">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">Primary Focus</p>
+<p class="text-base text-charcoal font-medium">Advanced Elite Transitions &amp; Vertical Velocity</p>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">Pedigree</p>
+<p class="text-base text-charcoal font-medium">NCA Collegiate Champion Alumnus</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-40 bg-rice" id="mystery">
+<div class="container mx-auto px-8 mb-24">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-charcoal/5 pb-12">
+<div class="max-w-xl">
+<span class="text-primary text-[11px] font-bold uppercase tracking-[0.5em] mb-4 block">Elite Roster</span>
+<h2 class="font-display font-bold text-6xl uppercase tracking-tighter text-charcoal">The Mystery Reveal</h2>
+</div>
+<p class="text-ink/60 text-base font-light italic max-w-sm">An ensemble of elite forces converge. Global identities remain undisclosed until the final announcement.</p>
+</div>
+</div>
+<div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="group relative">
+<div class="distressed-card bg-paper aspect-[4/5] border border-charcoal/5 relative overflow-hidden shadow-xl">
+<div class="absolute inset-0 frosted-mystery z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-1000">
+<span class="material-symbols-outlined text-[18rem] text-charcoal">person</span>
+</div>
+<div class="absolute top-10 right-10 z-20">
+<span class="bg-white/90 backdrop-blur-md border border-charcoal/5 text-charcoal text-[9px] font-mono font-bold px-5 py-2.5 uppercase tracking-widest">REVEAL COMING SOON</span>
+</div>
+<div class="absolute bottom-16 left-0 w-full px-12 z-20 text-center">
+<h4 class="font-mono font-bold text-xl uppercase mb-3 tracking-[0.2em] text-charcoal">UNDISCLOSED</h4>
+<p class="text-primary text-[11px] font-bold uppercase tracking-widest mb-5 italic">"Elite International Coach"</p>
+<div class="h-px w-12 bg-primary/30 mx-auto"></div>
+</div>
+</div>
+</div>
+<div class="group relative">
+<div class="distressed-card bg-paper aspect-[4/5] border border-charcoal/5 relative overflow-hidden shadow-xl">
+<div class="absolute inset-0 frosted-mystery z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-1000">
+<span class="material-symbols-outlined text-[18rem] text-charcoal">military_tech</span>
+</div>
+<div class="absolute top-10 right-10 z-20">
+<span class="bg-white/90 backdrop-blur-md border border-charcoal/5 text-charcoal text-[9px] font-mono font-bold px-5 py-2.5 uppercase tracking-widest">REVEAL COMING SOON</span>
+</div>
+<div class="absolute bottom-16 left-0 w-full px-12 z-20 text-center">
+<h4 class="font-mono font-bold text-xl uppercase mb-3 tracking-[0.2em] text-charcoal">UNDISCLOSED</h4>
+<p class="text-primary text-[11px] font-bold uppercase tracking-widest mb-5 italic">"World Champion Athlete"</p>
+<div class="h-px w-12 bg-primary/30 mx-auto"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-40 relative overflow-hidden" id="register">
+<div class="absolute inset-0 ink-wash-texture opacity-30"></div>
+<div class="container mx-auto px-8 max-w-4xl relative z-10">
+<div class="bg-white/80 backdrop-blur-md border border-charcoal/5 p-12 md:p-24 distressed-card shadow-2xl">
+<div class="text-center mb-20">
+<h2 class="font-display font-bold text-6xl uppercase mb-8 tracking-tighter text-charcoal">Join the Collective</h2>
+<p class="text-ink/60 font-light tracking-widest uppercase text-xs max-w-md mx-auto leading-loose">Secure your position within an elite community. Priority access for registered athletes only.</p>
+</div>
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="space-y-3">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary/70 ml-1">Full Identity</label>
+<input class="w-full bg-paper/30 border-charcoal/10 py-5 px-7 focus:ring-primary focus:border-primary text-sm font-medium transition-all text-charcoal placeholder:text-charcoal/30 border-0 border-b-2" placeholder="Enter Full Name" type="text"/>
+</div>
+<div class="space-y-3">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary/70 ml-1">Direct Contact</label>
+<input class="w-full bg-paper/30 border-charcoal/10 py-5 px-7 focus:ring-primary focus:border-primary text-sm font-medium transition-all text-charcoal placeholder:text-charcoal/30 border-0 border-b-2" placeholder="email@address.com" type="email"/>
+</div>
+<div class="space-y-3">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary/70 ml-1">WhatsApp</label>
+<input class="w-full bg-paper/30 border-charcoal/10 py-5 px-7 focus:ring-primary focus:border-primary text-sm font-medium transition-all text-charcoal placeholder:text-charcoal/30 border-0 border-b-2" placeholder="+60 00-000 0000" type="tel"/>
+</div>
+<div class="space-y-3">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary/70 ml-1">Instagram</label>
+<input class="w-full bg-paper/30 border-charcoal/10 py-5 px-7 focus:ring-primary focus:border-primary text-sm font-medium transition-all text-charcoal placeholder:text-charcoal/30 border-0 border-b-2" placeholder="@handle" type="text"/>
+</div>
+</div>
+<div class="pt-8">
+<button class="w-full bg-primary text-white font-display font-bold text-sm uppercase py-7 tracking-[0.5em] hover:bg-charcoal transition-all shadow-xl shadow-primary/20" type="submit">
+                            Register Interest
+                        </button>
+</div>
+<p class="text-center text-[10px] text-charcoal/40 uppercase tracking-[0.3em] font-medium">Limited availability for elite coaching oversight.</p>
+</form>
+</div>
+</div>
+</section>
+<footer class="py-20 bg-rice border-t border-charcoal/5">
+<div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-12">
+<div class="text-[10px] font-bold uppercase tracking-[0.4em] text-charcoal/40">
+                © 2026 Special Guest Summit • Kuala Lumpur, Malaysia
+            </div>
+<div class="flex gap-16">
+<a class="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-charcoal/60 hover:text-primary transition-colors" href="#">
+<span class="w-6 h-px bg-charcoal/10 group-hover:bg-primary transition-all"></span>
+                    Instagram
+                </a>
+<a class="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-charcoal/60 hover:text-primary transition-colors" href="#">
+<span class="w-6 h-px bg-charcoal/10 group-hover:bg-primary transition-all"></span>
+                    Enquiries
+                </a>
+</div>
+</div>
+</footer>
+
+</body></html>

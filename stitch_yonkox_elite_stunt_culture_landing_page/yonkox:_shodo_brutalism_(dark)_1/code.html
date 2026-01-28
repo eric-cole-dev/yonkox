@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YonkoX: Local Circuit Editorial</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80011E",
+                        "rice-paper": "#F4F1E8",
+                        "ink-black": "#0F0F0F",
+                        "stone-accent": "#D1CEC4"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-rice-paper text-ink-black;
+            }
+        }
+        .ink-wash-texture {
+            background-image: radial-gradient(circle at 70% 30%, rgba(128, 1, 30, 0.03) 0%, transparent 60%),
+                              radial-gradient(circle at 20% 70%, rgba(15, 15, 15, 0.02) 0%, transparent 50%);
+        }
+        .grain {
+            position: fixed;
+            inset: 0;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBDfqBQVSqb9f6YYoDXXZgPLYV-ld3VPQiCdtpDGu5Te8TrJqyKDhhXsY3IbkbGWapsA_cz02-iXNN4mZPAPxc4Yk9tW-CbM44WbERwwklG7Xr9ZmGJlTHMW_pDn6ChG8eqqz4rAayvQrVIZDSgEWVwKvEV7HAdtXrtQRuoAggas1gM8CSOIolnAO15d7JebJQvPgSnAeFfjdBdKJPJ4xJd3RQy61efHZDOv37Wf36KGnG0jL0QZ6DTwrMtPJQDzBNGhSgFOkgxW_4);
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        .editorial-line {
+            height: 1px;
+            background: linear-gradient(90deg, #80011E 0%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-white antialiased">
+<div class="grain"></div>
+<header class="fixed top-0 left-0 w-full z-50 border-b border-black/5 bg-rice-paper/80 backdrop-blur-md">
+<div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="font-display font-bold text-lg tracking-tighter uppercase">Yonko<span class="text-primary">X</span></div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors" href="#">Philosophy</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors" href="#">Schedule</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors" href="#">Specialists</a>
+</nav>
+</div>
+<button class="bg-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-3 hover:bg-ink-black transition-colors">
+                Book Session
+            </button>
+</div>
+</header>
+<section class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden ink-wash-texture">
+<div class="container mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+<div class="mb-6 flex items-center gap-4">
+<span class="h-px w-8 bg-primary"></span>
+<span class="text-primary text-xs font-bold uppercase tracking-[0.4em]">Bi-Weekly Workshops</span>
+<span class="h-px w-8 bg-primary"></span>
+</div>
+<h1 class="font-display font-bold text-[8vw] leading-[0.9] uppercase tracking-tighter mb-8">
+                Local Circuit<br/>Workshops
+            </h1>
+<div class="max-w-xl">
+<p class="text-xl md:text-2xl font-light italic text-ink-black/80 mb-12">"How to Toss Higher: Deconstructing Vertical Velocity"</p>
+<div class="flex flex-col items-center gap-6">
+<div class="h-20 w-px bg-primary/30"></div>
+<span class="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">Scroll to explore</span>
+</div>
+</div>
+</div>
+<div class="absolute left-10 bottom-20 text-[20vw] font-black text-black/[0.02] select-none pointer-events-none">力</div>
+<div class="absolute right-10 top-20 text-[20vw] font-black text-black/[0.02] select-none pointer-events-none">技術</div>
+</section>
+<section class="py-32 border-y border-black/5 bg-white">
+<div class="container mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div class="space-y-8">
+<span class="text-primary text-xs font-bold uppercase tracking-[0.3em] block">Our Methodology</span>
+<h2 class="font-display font-bold text-5xl uppercase tracking-tighter leading-none">Structured<br/>Progression</h2>
+<div class="editorial-line w-24"></div>
+<p class="text-lg text-ink-black/70 leading-relaxed font-light max-w-lg">
+                    We believe stunting is as much an engineering challenge as it is an athletic feat. Our Local Circuit workshops provide the bi-weekly consistency needed to rewrite muscle memory through deliberate, technical deconstruction.
+                </p>
+<p class="text-sm text-ink-black/50 leading-relaxed max-w-md uppercase tracking-wider font-medium">
+                    Based in Kuala Lumpur, open to athletes looking to bridge the gap between foundation and elite mastery.
+                </p>
+</div>
+<div class="relative pl-12">
+<div class="absolute left-0 top-0 bottom-0 w-px bg-black/5"></div>
+<div class="space-y-16">
+<div class="relative flex items-start gap-8 group">
+<span class="font-display font-bold text-4xl text-primary/20 group-hover:text-primary transition-colors">01</span>
+<div>
+<h4 class="font-display font-bold text-lg uppercase mb-2">Technical Foundations</h4>
+<p class="text-sm text-ink-black/60 font-light">The physics of the load and weight distribution.</p>
+</div>
+</div>
+<div class="relative flex items-start gap-8 group">
+<span class="font-display font-bold text-4xl text-primary/20 group-hover:text-primary transition-colors">02</span>
+<div>
+<h4 class="font-display font-bold text-lg uppercase mb-2">Vertical Acceleration</h4>
+<p class="text-sm text-ink-black/60 font-light">Explosive power transfer and timing precision.</p>
+</div>
+</div>
+<div class="relative flex items-start gap-8 group">
+<span class="font-display font-bold text-4xl text-primary/20 group-hover:text-primary transition-colors">03</span>
+<div>
+<h4 class="font-display font-bold text-lg uppercase mb-2">Stability Cycles</h4>
+<p class="text-sm text-ink-black/60 font-light">Center-of-mass control and grip refinement.</p>
+</div>
+</div>
+<div class="relative flex items-start gap-8 group">
+<span class="font-display font-bold text-4xl text-primary/20 group-hover:text-primary transition-colors">04</span>
+<div>
+<h4 class="font-display font-bold text-lg uppercase mb-2">Advanced Variations</h4>
+<p class="text-sm text-ink-black/60 font-light">Application to complex elite transitions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-rice-paper">
+<div class="container mx-auto px-8 mb-16 text-center">
+<h2 class="font-display font-bold text-4xl uppercase mb-4 tracking-tighter">Workshop Dynamics</h2>
+<p class="text-primary text-[10px] font-bold uppercase tracking-[0.4em]">Consistency is the secret to height</p>
+</div>
+<div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
+<div class="bg-white border border-black/10 p-12 shadow-sm relative group hover:border-primary transition-colors">
+<div class="absolute top-0 right-0 p-6">
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors">schedule</span>
+</div>
+<h3 class="font-display font-bold text-2xl uppercase mb-6 tracking-tight">When We Meet</h3>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-black/5 pb-4">
+<span class="text-xs uppercase font-bold text-ink-black/40 tracking-widest">Time</span>
+<span class="text-sm font-bold">14:00 — 16:00 (Saturdays)</span>
+</div>
+<div class="flex justify-between border-b border-black/5 pb-4">
+<span class="text-xs uppercase font-bold text-ink-black/40 tracking-widest">Frequency</span>
+<span class="text-sm font-bold">Bi-Weekly Sessions</span>
+</div>
+<div class="flex justify-between">
+<span class="text-xs uppercase font-bold text-ink-black/40 tracking-widest">Location</span>
+<span class="text-sm font-bold">Kuala Lumpur Central</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-black/10 p-12 shadow-sm relative group hover:border-primary transition-colors">
+<div class="absolute top-0 right-0 p-6">
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors">exercise</span>
+</div>
+<h3 class="font-display font-bold text-2xl uppercase mb-6 tracking-tight">The 15-Minute Drill</h3>
+<p class="text-sm text-ink-black/70 leading-relaxed mb-6">
+                    Every workshop starts with our signature 'Technical Primer'. 15 minutes of hyper-focused repetition on a single micro-movement.
+                </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Isolated Muscle Activation
+                    </li>
+<li class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        Proprioceptive Mapping
+                    </li>
+<li class="flex items-center gap-3 text-xs font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                        High-Frequency Correction
+                    </li>
+</ul>
+</div>
+</div>
+</section>
+<section class="py-32 bg-white">
+<div class="container mx-auto px-8 mb-20 text-center">
+<span class="text-primary text-[10px] font-bold uppercase tracking-[0.5em] mb-4 block">Instructional Team</span>
+<h2 class="font-display font-bold text-5xl uppercase tracking-tighter">Stunt Specialists</h2>
+</div>
+<div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="group text-center">
+<div class="aspect-[4/5] bg-rice-paper mb-8 overflow-hidden border border-black/5 relative grayscale group-hover:grayscale-0 transition-all duration-700">
+<img alt="Eric" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5tpibSE9Rr60DSOdqM4gItAo3CYzICH4lTUYj8pBDHq87XyLCR0hLjwdw-Cq9fSqPgY2aq0yB_YsQhw1PsyRxoOiDU_jy5WzfkAUa1eleLD-9kVmUddxyXizJBJgyRHq8assbqOOdxr3rfagL_S0H7yXR1pfSd4sWIK63bQvLfo0j2sQZFtjaUuOkbrIQLdZ3dIzeXlLV05QK3aj68BwkhVKAf_Qy8jax_U-wW2O9wiEcNXXDJ6FxyICnQbhIEus_X9R4dtc-pY"/>
+<div class="absolute inset-0 border-[20px] border-white/0 group-hover:border-white/10 transition-all duration-500"></div>
+</div>
+<h4 class="font-display font-bold text-xl uppercase mb-1">Eric</h4>
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest">Stunt Specialist</p>
+</div>
+<div class="group text-center">
+<div class="aspect-[4/5] bg-rice-paper mb-8 overflow-hidden border border-black/5 relative grayscale group-hover:grayscale-0 transition-all duration-700">
+<img alt="Shen Qian" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYt2TXuWoYQiviq2288hdibroQS-oeGECD56sl3lUf6Jf40aupx1lVW6wuR5mPK0uPmRMrboWLQ2YZsHrwM0ZsvLn2IzoJ-R_h60VvqtN2N6WPVoh0Wp7klb-N2O72J9PpHU27RsXqZIeyfgtqyLclX7W81CvdXh71AFELFFEWn1F-nGNwA6_osNQ3zgdxbQPYgaquv7yY4krsQRJWPBwP1pnJEp6UyeirKRog8ml0OezL6H70H5bIRm-CjMicGYit14nEfYyIy9g"/>
+<div class="absolute inset-0 border-[20px] border-white/0 group-hover:border-white/10 transition-all duration-500"></div>
+</div>
+<h4 class="font-display font-bold text-xl uppercase mb-1">Shen Qian</h4>
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest">Stunt Specialist</p>
+</div>
+<div class="group text-center">
+<div class="aspect-[4/5] bg-rice-paper mb-8 overflow-hidden border border-black/5 relative grayscale group-hover:grayscale-0 transition-all duration-700">
+<img alt="Mayven" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC85Da5KndKDpmj2I9EAPJQ1jK6qBJmSz2vh-YHrXnqLlpU30-VO49IDDcbf1h5axhwhhryR4zESctMidA1rSNaQbAyaunblJDWUyHJtrtnc04_JhEORp58qYutCpvknVi0dn_Tzbfr_JE51-_qnDpRvgqua8zYAcg4sAF6ei4iNqH5avx7jjEj5w_bQmGIO3L3M-SnI1JupCjWLu0krycB0Uo5z58YNJORvNv9TXOdKrGm1femw3WCLp0CAFn103iSwH7_0re5FQk"/>
+<div class="absolute inset-0 border-[20px] border-white/0 group-hover:border-white/10 transition-all duration-500"></div>
+</div>
+<h4 class="font-display font-bold text-xl uppercase mb-1">Mayven</h4>
+<p class="text-primary text-[10px] font-bold uppercase tracking-widest">Stunt Specialist</p>
+</div>
+</div>
+</section>
+<section class="py-32 bg-rice-paper border-t border-black/5">
+<div class="container mx-auto px-8 max-w-2xl">
+<div class="text-center mb-16">
+<h2 class="font-display font-bold text-4xl uppercase mb-6 tracking-tighter">Secure Your Spot</h2>
+<p class="text-ink-black/60 font-light">Join the next cycle of the Local Circuit Workshops. limited capacity per session for maximum technical oversight.</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-4">Full Name</label>
+<input class="w-full bg-white border-black/10 py-4 px-6 focus:ring-primary focus:border-primary text-sm font-medium transition-all" placeholder="Enter your name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-4">Email Address</label>
+<input class="w-full bg-white border-black/10 py-4 px-6 focus:ring-primary focus:border-primary text-sm font-medium transition-all" placeholder="email@address.com" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-primary ml-4">Experience Level</label>
+<select class="w-full bg-white border-black/10 py-4 px-6 focus:ring-primary focus:border-primary text-sm font-medium transition-all">
+<option>Foundation</option>
+<option>Intermediate</option>
+<option>Elite</option>
+</select>
+</div>
+<button class="w-full bg-primary text-white font-display font-bold text-sm uppercase py-5 tracking-[0.3em] hover:bg-ink-black transition-all shadow-xl mt-8" type="submit">
+                    Register Interest
+                </button>
+</form>
+</div>
+</section>
+<footer class="py-12 bg-white border-t border-black/5">
+<div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-[10px] font-bold uppercase tracking-[0.3em] text-ink-black/40">
+                © 2024 Yonko X Collective — Local Circuit Division
+            </div>
+<div class="flex gap-8">
+<a class="text-[10px] font-bold uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#">Contact</a>
+<a class="text-[10px] font-bold uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+
+</body></html>
